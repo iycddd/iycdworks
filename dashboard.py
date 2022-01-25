@@ -7,3 +7,5 @@ import numpy as np
 st.title("CV DASHBOARD")
 st.subheader("subheader <3")
 
+#video
+st.video(https://www.youtube.com/watch?v=PoAeFpUB1hA)
