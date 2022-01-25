@@ -49,7 +49,7 @@ if add_selectbox == 'main':
   
           firstcol, seccol = st.columns((3,1))
           with firstcol:
-            st.header("CV DASHBOARD")
+            st.title("CV DASHBOARD")
             st.caption("next gen fusion 👌")
           #with seccol:
           
