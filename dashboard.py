@@ -19,3 +19,5 @@ with col1:
 with col2:
   st.header("video 2")
   st.image("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
+
+st.image("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
