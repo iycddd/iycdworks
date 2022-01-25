@@ -54,7 +54,7 @@ if add_selectbox == 'main':
           with seccol:
             #st.title("")
             #clicked = st.button("⚠️")
-            break
+          break
             
           #columns
           col1, col2, col3 = st.columns(3)
