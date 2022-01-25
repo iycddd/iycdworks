@@ -9,15 +9,13 @@ st.subheader("subheader <3")
 
 #columns
 col1, col2 = st.columns(2)
-col1.header("video 1")
-col2.header("video 2")
 
-#define videos
-vid1 = st.video("https://www.youtube.com/watch?v=cuG7GCXCi48")
-vid2 = st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
-
-#video
-#st.video("https://www.youtube.com/watch?v=PoAeFpUB1hA")
-
-#video2
-#st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
+#col 1
+with col1:
+  st.header("video 1")
+  st.image("https://www.youtube.com/watch?v=cuG7GCXCi48")
+  
+#col 2
+with col2:
+  st.header("video 2")
+  st.image("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
