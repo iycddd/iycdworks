@@ -44,8 +44,9 @@ if add_selectbox == 'main':
             st.video(vidlist[5])
           
 elif add_selectbox == 'feed A':
+          num = 2
           #columns
-          col1, col2 = st.columns((2,1))
+          col1, col2 = st.columns((num,1))
           with col1:
             st.header("feed A")    
             st.video(vidlist[0])
