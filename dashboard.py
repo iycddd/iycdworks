@@ -21,6 +21,8 @@ with col1:
 with col2:
   st.header("feed B")
   st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
+  st.video("https://www.youtube.com/watch?v=9EJIH8kxTn8")
 with col3:
   st.header("feed C")
   st.video("https://www.youtube.com/watch?v=W9wT8uOjv6A")
+  st.video("https://www.youtube.com/watch?v=cbP2N1BQdYc")
