@@ -16,7 +16,6 @@ col1, col2, col3 = st.columns(3)
 #contents
 with col1:
   st.header("feed A")
-  st.button
   st.video("https://www.youtube.com/watch?v=cuG7GCXCi48")
   st.video("https://www.youtube.com/watch?v=hG5i6XM6x7w")
 with col2:
