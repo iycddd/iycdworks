@@ -47,17 +47,17 @@ if add_selectbox == 'main':
             st.video(vidlist[4])
             st.video(vidlist[5])
           
-elif add_selectbox == 'feedA':
+elif add_selectbox == 'feed A':
           st.header("feed A")
           st.video(vidlist[0])
           st.video(vidlist[1])
           
-elif add_selectbox == 'feedB':
+elif add_selectbox == 'feed B':
           st.header("feed B")
           st.video(vidlist[2])
           st.video(vidlist[3])
           
-elif add_selectbox == 'feedC':
+elif add_selectbox == 'feed C':
           st.header("feed C")
           st.video(vidlist[4])
           st.video(vidlist[5])
