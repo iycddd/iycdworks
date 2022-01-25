@@ -56,7 +56,7 @@ elif add_selectbox == 'feed A':
           
 elif add_selectbox == 'feed B':
           #columns
-          col1, col2 = st.columns((2,1))
+          col1, col2 = st.columns((5,3))
           with col1:
             st.header("feed B")
             st.video(vidlist[2])
@@ -66,7 +66,7 @@ elif add_selectbox == 'feed B':
           
 elif add_selectbox == 'feed C':
           #columns
-          col1, col2 = st.columns((2,1))
+          col1, col2 = st.columns((1,3))
           with col1:
             st.header("feed C")
             st.video(vidlist[4])
