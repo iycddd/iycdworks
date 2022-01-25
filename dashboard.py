@@ -52,8 +52,10 @@ if add_selectbox == 'main':
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
           with seccol:
-           # st.title("")
+            #st.title("")
             #clicked = st.button("⚠️")
+            break
+            
           #columns
           col1, col2, col3 = st.columns(3)
           
