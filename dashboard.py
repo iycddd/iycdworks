@@ -15,8 +15,8 @@ col1, col2, col3 = st.columns(3)
 
 #sidebar
 add_selectbox = st.sidebar.radio(
-  "hi",
-  ("hello", "hello2", "return of hello"))
+  "menu",
+  ("main", "feed A", "feed B", "feed C"))
 
 #contents
 with col1:
