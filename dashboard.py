@@ -1,7 +1,3 @@
-#############
-##  setup  ##
-#############
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -12,7 +8,7 @@ st.set_page_config(layout="wide")
 #vidlist
 vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=hG5i6XM6x7w",
-          "https://www.youtube.com/watch?v=CVHj7Wxhvdo",
+          "https://www.youtube.com/watch?v=XLxToJ4mauY",
           "https://www.youtube.com/watch?v=9EJIH8kxTn8",
           "https://www.youtube.com/watch?v=W9wT8uOjv6A",
           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
