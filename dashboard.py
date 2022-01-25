@@ -55,7 +55,7 @@ elif add_selectbox == 'feed A':
           
 elif add_selectbox == 'feed B':
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3)
+            num = st.slider("", 1, 5, 3, None, None, 2)
           #columns
           col1, col2 = st.columns((3,num))
           with col1:
@@ -67,7 +67,7 @@ elif add_selectbox == 'feed B':
           
 elif add_selectbox == 'feed C':
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3)
+            num = st.slider("", 1, 5, 3, None, None, 3)
           #columns
           col1, col2 = st.columns((3,num))
           with col1:
