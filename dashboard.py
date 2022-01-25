@@ -14,7 +14,7 @@ st.subheader("next gen fusion 👌")
 col1, col2, col3 = st.columns(3)
 
 #sidebar
-add_selectbox = st.sidebar.button(
+add_selectbox = st.sidebar.radio(
   "hello", "hello2", "return of hello")
 
 #contents
