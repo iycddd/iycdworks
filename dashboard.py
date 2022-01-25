@@ -13,9 +13,6 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=W9wT8uOjv6A",
           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
 
-#header
-st.title("CV DASHBOARD")
-
 #sidebar
 add_selectbox = st.sidebar.radio(
   "menu",
@@ -26,6 +23,7 @@ add_selectbox = st.sidebar.radio(
 #############
 
 if add_selectbox == 'main':
+          st.title("CV DASHBOARD")
           st.subheader("next gen fusion 👌")
           #columns
           col1, col2, col3 = st.columns(3)
@@ -44,8 +42,8 @@ if add_selectbox == 'main':
             st.video(vidlist[5])
           
 elif add_selectbox == 'feed A':
-          num = 3
-          num = st.slider('zoom slider', 1, 5, 3)
+          with st.expander(
+            num = st.slider('zoom slider', 1, 5, 3))
           #columns
           col1, col2 = st.columns((num,3))
           with col1:
