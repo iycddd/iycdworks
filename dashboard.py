@@ -28,9 +28,9 @@ if add_selectbox == 'main':
 
           #contents
           with col1:
-            st.header("feed A")
-           st.video(vidlist[0])
-           st.video(vidlist[1])
+                    st.header("feed A")
+                    st.video(vidlist[0])
+                    st.video(vidlist[1])
           with col2:
             st.header("feed B")
             st.video(vidlist[2])
