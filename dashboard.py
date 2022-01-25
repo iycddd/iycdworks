@@ -45,7 +45,7 @@ if add_selectbox == 'main':
           
 elif add_selectbox == 'feed A':
           num = 3
-          num = st.slider('zoom slider', 1, 5)
+          num = st.slider('zoom slider', 1, 5, 3)
           #columns
           col1, col2 = st.columns((num,3))
           with col1:
