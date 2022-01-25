@@ -10,12 +10,6 @@ st.set_page_config(layout="wide")
 st.title("CV DASHBOARD")
 st.subheader("next gen fusion 👌")
 
-#sidebar
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
-
 #columns
 col1, col2, col3 = st.columns(3)
 
