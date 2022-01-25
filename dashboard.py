@@ -19,7 +19,7 @@ st.title("CV DASHBOARD")
 st.subheader("next gen fusion 👌")
 
 #sidebar
-add_selectbox (st.sidebar.radio(
+add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C"))
 
