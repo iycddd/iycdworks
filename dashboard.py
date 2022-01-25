@@ -5,7 +5,23 @@ import numpy as np
 #widen page
 st.set_page_config(layout="wide")
 
-#vidlist
+#sidebar
+add_selectbox = st.sidebar.radio(
+  "menu",
+  ("main", "feed A", "feed B", "feed C"))
+
+
+
+
+
+
+
+#############
+## vidlist ##
+#############
+
+#just need to change these to get live videos working i think :)
+
 vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=hG5i6XM6x7w",
           "https://www.youtube.com/watch?v=XLxToJ4mauY",
@@ -13,21 +29,26 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=W9wT8uOjv6A",
           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
 
-#sidebar
-add_selectbox = st.sidebar.radio(
-  "menu",
-  ("main", "feed A", "feed B", "feed C"))
+
+
+
+
+
 
 #############
 ## display ##
 #############
 
+## main ##
+
 if add_selectbox == 'main':
           st.title("CV DASHBOARD")
           st.subheader("next gen fusion 👌")
+          
           #columns
           col1, col2, col3 = st.columns(3)
-          #contents
+          
+          #content
           with col1:
             st.header("feed A")
             st.video(vidlist[0])
@@ -41,11 +62,18 @@ if add_selectbox == 'main':
             st.video(vidlist[4])
             st.video(vidlist[5])
           
+## feed A ##
+         
 elif add_selectbox == 'feed A':
+          
+          #zoomslider
           with st.expander("adjust zoom"):
             num = st.slider("", 1, 5, 3, None, None, 1)
+          
           #columns
           col1, col2 = st.columns((3,num))
+          
+          #content
           with col1:
             st.header("feed A")    
             st.video(vidlist[0])
@@ -53,26 +81,42 @@ elif add_selectbox == 'feed A':
             st.header("anafi")
             st.video(vidlist[1])
           
+## feed B ##
+          
 elif add_selectbox == 'feed B':
+          
+          #zoomslider
           with st.expander("adjust zoom"):
             num = st.slider("", 1, 5, 3, None, None, 2)
+          
           #columns
           col1, col2 = st.columns((3,num))
+          
+          #content
           with col1:
             st.header("feed B")
             st.video(vidlist[2])
+                    
           with col2:
             st.header("anafi")
             st.video(vidlist[3])
           
+## feed C ##
+          
 elif add_selectbox == 'feed C':
+          
+          #zoomslider
           with st.expander("adjust zoom"):
             num = st.slider("", 1, 5, 3, None, None, 3)
+          
           #columns
           col1, col2 = st.columns((3,num))
+          
+          #content
           with col1:
             st.header("feed C")
             st.video(vidlist[4])
+                    
           with col2:
             st.header("anafi")
             st.video(vidlist[5])
