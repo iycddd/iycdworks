@@ -13,6 +13,11 @@ st.subheader("next gen fusion 👌")
 #columns
 col1, col2, col3 = st.columns(3)
 
+#sidebar
+add_selectbox = st.sidebar.selectbox(
+  "hello", ("one", "two", "three")
+)
+
 #contents
 with col1:
   st.header("feed A")
