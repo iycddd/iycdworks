@@ -23,7 +23,6 @@ option = add_selectbox(st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C")))
 
-if st.checkbox(
 #columns
 col1, col2, col3 = st.columns(3)
 
