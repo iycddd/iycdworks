@@ -43,7 +43,7 @@ if add_selectbox == 'main':
           
 elif add_selectbox == 'feed A':
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3, %g percent, key1)
+            num = st.slider("", 1, 5, 3, "%g percent", key1)
           #columns
           col1, col2 = st.columns((3,num))
           with col1:
