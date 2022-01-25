@@ -45,7 +45,7 @@ elif add_selectbox == 'feed A':
           with st.expander("adjust zoom"):
             num = st.slider("", 1, 5, 3)
           #columns
-          col1, col2 = st.columns((num,3))
+          col1, col2 = st.columns((3,num))
           with col1:
             st.header("feed A")    
             st.video(vidlist[0])
@@ -54,8 +54,10 @@ elif add_selectbox == 'feed A':
             st.video(vidlist[1])
           
 elif add_selectbox == 'feed B':
+          with st.expander("adjust zoom"):
+            num = st.slider("", 1, 5, 3)
           #columns
-          col1, col2 = st.columns((num,3))
+          col1, col2 = st.columns((3,num))
           with col1:
             st.header("feed B")
             st.video(vidlist[2])
@@ -64,8 +66,10 @@ elif add_selectbox == 'feed B':
             st.video(vidlist[3])
           
 elif add_selectbox == 'feed C':
+          with st.expander("adjust zoom"):
+            num = st.slider("", 1, 5, 3)
           #columns
-          col1, col2 = st.columns((num,3))
+          col1, col2 = st.columns((3,num))
           with col1:
             st.header("feed C")
             st.video(vidlist[4])
