@@ -21,7 +21,7 @@ add_selectbox = st.sidebar.selectbox(
 #contents
 with col1:
   st.header("feed A")
-  st.video("<iframe width="656" height="369" src="https://www.youtube.com/embed/vy1pYbwwQ5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>")
+  st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
   st.video("https://www.youtube.com/watch?v=hG5i6XM6x7w")
 with col2:
   st.header("feed B")
