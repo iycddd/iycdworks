@@ -47,7 +47,7 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
 
 if add_selectbox == 'main':
   
-          firstcol, seccol = st.columns((3,1))
+          firstcol, seccol = st.columns((9,1))
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
