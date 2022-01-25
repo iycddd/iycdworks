@@ -72,10 +72,10 @@ elif add_selectbox == 'feed A':
           
           #zoomslider
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3, None, None, 1)
+            slideval = st.slider("", 1, 5, 3, None, None, 1)
           
           #columns
-          col1, col2 = st.columns((3,num))
+          col1, col2 = st.columns((3,slideval))
           
           #content
           with col1:
@@ -91,10 +91,10 @@ elif add_selectbox == 'feed B':
           
           #zoomslider
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3, None, None, 2)
+            slideval = st.slider("", 1, 5, 3, None, None, 2)
           
           #columns
-          col1, col2 = st.columns((3,num))
+          col1, col2 = st.columns((3,slideval))
           
           #content
           with col1:
@@ -111,10 +111,10 @@ elif add_selectbox == 'feed C':
           
           #zoomslider
           with st.expander("adjust zoom"):
-            num = st.slider("", 1, 5, 3, None, None, 3)
+            slideval = st.slider("", 1, 5, 3, None, None, 3)
           
           #columns
-          col1, col2 = st.columns((3,num))
+          col1, col2 = st.columns((3,slideval))
           
           #content
           with col1:
