@@ -45,15 +45,27 @@ if add_selectbox == 'main':
           
 elif add_selectbox == 'feed A':
           st.header("feed A")
+          #columns
+          col1, col2 = st.columns(2)
+          with col1:
           st.video(vidlist[0])
+          with col2:
           st.video(vidlist[1])
           
 elif add_selectbox == 'feed B':
           st.header("feed B")
+          #columns
+          col1, col2 = st.columns(2)
+          with col1:
           st.video(vidlist[2])
+          with col2:
           st.video(vidlist[3])
           
 elif add_selectbox == 'feed C':
           st.header("feed C")
+          #columns
+          col1, col2 = st.columns(2)
+          with col1:
           st.video(vidlist[4])
+          with col2:
           st.video(vidlist[5])
