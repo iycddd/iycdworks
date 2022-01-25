@@ -42,7 +42,7 @@ if add_selectbox == 'main':
             st.video(vidlist[5])
           
 elif add_selectbox == 'feed A':
-          with st.expander():
+          with st.expander(""):
             num = st.slider('zoom slider', 1, 5, 3)
           #columns
           col1, col2 = st.columns((num,3))
