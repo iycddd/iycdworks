@@ -11,4 +11,4 @@ st.subheader("subheader <3")
 st.video("https://www.youtube.com/watch?v=PoAeFpUB1hA")
 
 #video2
-st.video("https://www.pexels.com/video/video-of-forest-1448735/")
+st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
