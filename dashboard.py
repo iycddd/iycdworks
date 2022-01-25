@@ -1,3 +1,7 @@
+#############
+##  setup  ##
+#############
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -22,6 +26,10 @@ add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C"))
 
+#############
+## display ##
+#############
+
 if add_selectbox == 'main':
           #columns
           col1, col2, col3 = st.columns(3)
@@ -38,3 +46,18 @@ if add_selectbox == 'main':
             st.header("feed C")
             st.video(vidlist[4])
             st.video(vidlist[5])
+          
+elif add_selectbox == 'feedA':
+          st.header("feed A")
+          st.video(vidlist[0])
+          st.video(vidlist[1])
+          
+elif add_selectbox == 'feedB':
+          st.header("feed B")
+          st.video(vidlist[2])
+          st.video(vidlist[3])
+          
+elif add_selectbox == 'feedC':
+          st.header("feed C")
+          st.video(vidlist[4])
+          st.video(vidlist[5])
