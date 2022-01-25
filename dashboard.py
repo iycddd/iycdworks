@@ -1,4 +1,3 @@
-#import libraries
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -23,7 +22,8 @@ add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C"))
 
-#columns
+if add_selectbox == 'main':
+          #columns
 col1, col2, col3 = st.columns(3)
 
 #contents
