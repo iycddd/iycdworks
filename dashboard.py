@@ -6,18 +6,6 @@ import numpy as np
 #widen page
 st.set_page_config(layout="wide")
 
-#header
-st.title("CV DASHBOARD")
-st.subheader("next gen fusion 👌")
-
-#columns
-col1, col2, col3 = st.columns(3)
-
-#sidebar
-add_selectbox = st.sidebar.radio(
-  "menu",
-  ("main", "feed A", "feed B", "feed C"))
-
 #vidlist
 vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=hG5i6XM6x7w",
@@ -25,6 +13,19 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=9EJIH8kxTn8",
           "https://www.youtube.com/watch?v=W9wT8uOjv6A",
           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
+
+#header
+st.title("CV DASHBOARD")
+st.subheader("next gen fusion 👌")
+
+#sidebar
+option = add_selectbox(st.sidebar.radio(
+  "menu",
+  ("main", "feed A", "feed B", "feed C")))
+
+if st.checkbox(
+#columns
+col1, col2, col3 = st.columns(3)
 
 #contents
 with col1:
