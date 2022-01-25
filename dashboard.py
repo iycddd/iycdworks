@@ -15,7 +15,6 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
 
 #header
 st.title("CV DASHBOARD")
-st.subheader("next gen fusion 👌")
 
 #sidebar
 add_selectbox = st.sidebar.radio(
@@ -27,6 +26,7 @@ add_selectbox = st.sidebar.radio(
 #############
 
 if add_selectbox == 'main':
+          st.subheader("next gen fusion 👌")
           #columns
           col1, col2, col3 = st.columns(3)
           #contents
