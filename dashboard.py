@@ -22,6 +22,6 @@ with col2:
   st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
 
 #col 3
-with col2:
+with col3:
   st.header("feed C")
   st.video("https://www.youtube.com/watch?v=W9wT8uOjv6A")
