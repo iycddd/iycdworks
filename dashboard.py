@@ -8,4 +8,4 @@ st.title("CV DASHBOARD")
 st.subheader("subheader <3")
 
 #video
-st.video(https://www.youtube.com/watch?v=PoAeFpUB1hA)
+st.video("https://www.youtube.com/watch?v=PoAeFpUB1hA")
