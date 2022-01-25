@@ -18,14 +18,17 @@ add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C"))
 
-def feedA():
+vid1 = "https://www.youtube.com/watch?v=CVHj7Wxhvdo"
+
+
+def feedA(i: int):
   st.header("feed A")
-  st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
+  st.video(vid1)
   st.video("https://www.youtube.com/watch?v=hG5i6XM6x7w")
 
 #contents
 with col1:
-  feedA()
+  feedA(2)
 with col2:
   st.header("feed B")
   st.video("https://www.youtube.com/watch?v=CVHj7Wxhvdo")
