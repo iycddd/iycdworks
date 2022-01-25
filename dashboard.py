@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 
 #header
 st.title("CV DASHBOARD")
-st.subheader("subheader <3")
+st.subheader("next gen fusion 👌")
 
 #columns
 col1, col2, col3 = st.columns(3)
