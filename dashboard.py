@@ -52,7 +52,7 @@ def mainpage():
             st.title(" ")
             if spotted is not "clear":
               st.write("⚠️ ", spotted, "has been spotted ⚠️")
-            elif:
+            else:
               st.empty()           
             
           #columns
