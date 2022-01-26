@@ -47,7 +47,7 @@ def mainpage():
             st.subheader("next gen fusion 👌")
           with thirdcol:
             st.title(" ")
-            spotted = st.text_input("", "spotted")
+            spotted = st.text_input("TARGET SIGHTED:", "spotted")
             st.write("input 'clear' to clear")
           with seccol:
             st.title(" ")
