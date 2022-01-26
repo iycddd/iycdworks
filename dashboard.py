@@ -82,7 +82,9 @@ def mainpage():
          
 def feedA():
           
-          slideval = 3    
+          #slideval
+          with st.expander("adjust zoom"):
+            slideval = st.slider("", 1, 5, 3, None, None, 2)  
     
           #columns
           col1, col2 = st.columns((3,slideval))
@@ -101,10 +103,6 @@ def feedA():
           
 def feedB():
           
-    
-          slideval = 3
-          zoomslider()
-          
           #columns
           col1, col2 = st.columns((3,slideval))
           
@@ -116,12 +114,16 @@ def feedB():
           with col2:
             st.header("anafi")
             st.video(vidlist[3])
+            
+          with st.expander("adjust zoom"):
+            slideval = st.slider("", 1, 5, 3, None, None, 2)  
           
 ## feed C ##
           
 def feedC():
           
-          zoomslider()
+          with st.expander("adjust zoom"):
+            slideval = st.slider("", 1, 5, 3, None, None, 2)  
           
           #columns
           col1, col2 = st.columns((3,slideval))
