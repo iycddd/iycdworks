@@ -5,7 +5,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-$ pip install https://github.com/whitphx/tiny-streamlit-webrtc.git/zipball/master
+$ pip install git+ssh://github.com/whitphx/tiny-streamlit-webrtc.git
 from streamlit_webrtc import webrtc_streamer
 webrtc_streamer(key="sample")
 
