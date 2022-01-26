@@ -41,7 +41,7 @@ def main():
 
 
 def mainpage():
-          firstcol, seccol, thirdcol = st.columns((3,8,1))
+          firstcol, seccol, thirdcol = st.columns((3,8,4))
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
