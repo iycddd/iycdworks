@@ -41,7 +41,7 @@ def main():
 
 
 def mainpage():
-          firstcol, seccol, thirdcol = st.columns((4,4,1))
+          firstcol, seccol, thirdcol = st.columns((3,8,1))
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
@@ -55,7 +55,7 @@ def mainpage():
               st.empty()
             else:
               warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
-              st.warning("⚠️ ", spotted, "has been spotted ⚠️")
+              st.warning("targets sighted!")
             
           #columns
           col1, col2, col3 = st.columns(3)
