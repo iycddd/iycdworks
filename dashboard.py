@@ -40,7 +40,7 @@ def main():
   elif add_selectbox == 'feed C':
     feedC()
   elif add_selectbox == 'data':
-    data()
+    #data()
 
 def mainpage():
   
