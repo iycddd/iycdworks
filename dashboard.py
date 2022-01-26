@@ -66,7 +66,11 @@ def mainpage():
             else:
               warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
               st.warning("targets sighted!")
-            
+          
+          with blankcol2:
+            if st.button("Add row"):
+             get_data().append({"Spotted": spotted})
+          
           #columns
           col1, col2, col3 = st.columns(3)
           
