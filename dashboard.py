@@ -52,7 +52,7 @@ def mainpage():
           #sightings input column
           with thirdcol:
             st.title(" ")
-            spotted = st.text_input("TARGET SIGHTED:", "spotted")
+            spotted = st.text_input("TARGET SIGHTED:", "clear")
             st.write("input 'clear' to clear")
             
           #sightings display column
