@@ -48,7 +48,7 @@ def mainpage():
           with seccol:
             st.title(" ")
             spotted = st.text_input("what was spotted", "enter here")
-            st.write(spotted "has been spotted")
+            st.write(spotted, "has been spotted")
             
           #columns
           col1, col2, col3 = st.columns(3)
