@@ -51,7 +51,7 @@ def mainpage():
             st.write("input 'clear' to clear")
           with seccol:
             st.title(" ")
-            if spotted == "":
+            if spotted == "clear":
               st.empty()
             else:
               st.write("⚠️ ", spotted, "has been spotted ⚠️")           
