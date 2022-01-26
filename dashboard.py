@@ -48,7 +48,10 @@ def mainpage():
           with seccol:
             st.title(" ")
             clicked = st.button("⚠️")
-            st.caption("this button doesnt do anything yet")
+            if clicked = True:
+              st.error("button pressed")
+            if clicked = False:
+              st.error("button unpressed")
             
           #columns
           col1, col2, col3 = st.columns(3)
