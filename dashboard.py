@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-$ python -m pip install git+https://github.com/whitphx/tiny-streamlit-webrtc.git
+pip install git+https://github.com/whitphx/tiny-streamlit-webrtc.git
 from streamlit_webrtc import webrtc_streamer
 webrtc_streamer(key="sample")
 
