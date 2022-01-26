@@ -54,7 +54,8 @@ def mainpage():
             if spotted == "clear":
               st.empty()
             else:
-              st.write("⚠️ ", spotted, "has been spotted ⚠️")           
+              warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
+              st.warning(warn)
             
           #columns
           col1, col2, col3 = st.columns(3)
