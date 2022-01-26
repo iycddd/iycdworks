@@ -55,7 +55,7 @@ def mainpage():
               st.empty()
             else:
               warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
-              st.warning(warn)
+              st.warning("⚠️ ", spotted, "has been spotted ⚠️")
             
           #columns
           col1, col2, col3 = st.columns(3)
