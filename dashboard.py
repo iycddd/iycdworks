@@ -47,7 +47,6 @@ def mainpage():
             st.subheader("next gen fusion 👌")
           with seccol:
             st.title(" ")
-            option = ''
             st.write(option)
             clicked = st.button("⚠️")
             if clicked == True:
