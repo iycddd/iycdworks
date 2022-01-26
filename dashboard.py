@@ -41,6 +41,7 @@ def main():
 
 
 def mainpage():
+          option = 'ddsd'
           firstcol, seccol = st.columns((12,1))
           with firstcol:
             st.title("CV DASHBOARD")
@@ -129,5 +130,4 @@ def feedC():
             st.header("anafi")
             st.video(vidlist[5])
 
-option = ''
 main()
