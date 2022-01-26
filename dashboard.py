@@ -19,7 +19,6 @@ try:
 except ImportError:
     from typing_extensions import Literal  # type: ignore
 
-import av
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
