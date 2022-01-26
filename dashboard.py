@@ -52,7 +52,7 @@ def mainpage():
               option = st.selectbox(
                 "what was spotted?",
                 ("one", "two", "three"))
-            st.write(option)
+              st.write(option)
             
           #columns
           col1, col2, col3 = st.columns(3)
