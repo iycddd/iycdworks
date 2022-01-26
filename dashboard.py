@@ -41,19 +41,18 @@ def main():
 
 
 def mainpage():
-          option = 'ddsd'
           firstcol, seccol = st.columns((12,1))
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
           with seccol:
             st.title(" ")
-            st.write(option)
             clicked = st.button("⚠️")
             if clicked == True:
               option = st.selectbox(
                 "what was spotted?",
                 ("one", "two", "three"))
+            st.write(option)
             
           #columns
           col1, col2, col3 = st.columns(3)
