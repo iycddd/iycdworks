@@ -56,7 +56,10 @@ def mainpage():
               
             input_data = st.text_area("input")
             parsed_data = cleaning_function() # Some function you've made to clean the input data
-
+            
+            def cleaning_function():
+              input_data == ''
+              
             allow_editing = st.radio("Edit parsed data", [True, False])
 
             if allow_editing:
