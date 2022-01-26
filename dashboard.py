@@ -18,8 +18,6 @@ try:
     from typing import Literal
 except ImportError:
     from typing_extensions import Literal  # type: ignore
-   
-from aiortc.contrib.media import MediaPlayer
 
 from streamlit_webrtc import (
     AudioProcessorBase,
