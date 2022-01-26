@@ -53,7 +53,6 @@ def mainpage():
               option = st.selectbox(
                 "what was spotted?",
                 ("one", "two", "three"))
-            st.write(option)
             
           #columns
           col1, col2, col3 = st.columns(3)
@@ -130,4 +129,5 @@ def feedC():
             st.header("anafi")
             st.video(vidlist[5])
 
+option = ''
 main()
