@@ -6,9 +6,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-pip3 install git+https://github.com/whitphx/tiny-streamlit-webrtc.git
-from streamlit_webrtc import webrtc_streamer
-webrtc_streamer(key="sample")
+from streamlit_webrtc import (
+    AudioProcessorBase,
+    RTCConfiguration,
+    VideoProcessorBase,
+    WebRtcMode,
+    webrtc_streamer,
+)
 
 #widen page
 st.set_page_config(layout="wide")
