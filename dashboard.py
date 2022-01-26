@@ -48,6 +48,7 @@ def mainpage():
           with thirdcol:
             st.title(" ")
             spotted = st.text_input("", "spotted")
+            st.write("input 'clear' to clear")
           with seccol:
             st.title(" ")
             if spotted == "clear":
