@@ -11,7 +11,7 @@ st.set_page_config(layout="wide")
 #sidebar
 add_selectbox = st.sidebar.radio(
   "menu",
-  ("main", "feed A", "feed B", "feed C"))
+  ("main", "feed A", "feed B", "feed C", "data"))
 
 #############
 ## vidlist ##
@@ -38,6 +38,8 @@ def main():
     feedB()
   elif add_selectbox == 'feed C':
     feedC()
+  elif add_selectbox == 'data':
+    data()
 
 def mainpage():
   
@@ -142,4 +144,21 @@ def feedC():
             st.header("anafi")
             st.video(vidlist[5])
 
+## data ##
+
+def data():
+        @st.cache(allow_output_mutation=True)
+        def get_data():
+           return []
+
+        user_id = st.text_input("User ID")
+        foo = st.slider("foo", 0, 100)
+        bar = st.slider("bar", 0, 100)
+
+        if st.button("Add row"):
+           get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+
+        st.write(pd.DataFrame(get_data()))
+            
+            
 main()
