@@ -51,7 +51,7 @@ def mainpage():
           with seccol:
             st.title(" ")
             if spotted is not "spotted":
-              st.write(spotted, "has been spotted")
+              st.write("⚠️ ", spotted, "has been spotted ⚠️")
             
           #columns
           col1, col2, col3 = st.columns(3)
