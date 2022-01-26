@@ -47,25 +47,8 @@ def mainpage():
             st.subheader("next gen fusion 👌")
           with seccol:
             st.title(" ")
-            clicked = st.button("⚠️")
-            if clicked == True:
-              option = st.selectbox(
-                "what was spotted?",
-                ("one", "two", "three"))
-              st.write(option)
-            
-            
-            def cleaning_function():
-              input_data == ''
-              
-            input_data = st.text_area("input")
-            parsed_data = cleaning_function() # Some function you've made to clean the input data
-            allow_editing = st.radio("Edit parsed data", [True, False])
-            
-            if allow_editing:
-               output = st.text_area("parsed data", value=parsed_data)
-            else:
-                st.text(parsed_data)
+            spotted = st.text_input("what was spotted", "enter here")
+            st.write(spotted "has been spotted")
             
           #columns
           col1, col2, col3 = st.columns(3)
