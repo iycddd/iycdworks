@@ -82,6 +82,8 @@ def mainpage():
          
 def feedA():
           
+          slideval = 3    
+    
           #columns
           col1, col2 = st.columns((3,slideval))
           
@@ -99,6 +101,8 @@ def feedA():
           
 def feedB():
           
+    
+          slideval = 3
           zoomslider()
           
           #columns
