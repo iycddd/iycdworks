@@ -41,14 +41,16 @@ def main():
 
 
 def mainpage():
-          firstcol, seccol = st.columns((12,1))
+          firstcol, seccol, third col = st.columns((8,1,1))
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
-          with seccol:
+          with thirdcol:
             st.title(" ")
-            spotted = st.text_input("what was spotted", "enter here")
-            st.write(spotted, "has been spotted")
+            spotted = st.text_input("", "spotted")
+          with seccol:
+            if spotted is not "spotted":
+              st.write(spotted, "has been spotted")
             
           #columns
           col1, col2, col3 = st.columns(3)
