@@ -2,6 +2,9 @@
 ## setup ##
 ###########
 
+import streamlit as st
+import numpy as np
+
 #widen page
 st.set_page_config(layout="wide")
 
