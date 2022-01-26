@@ -47,11 +47,14 @@ def mainpage():
             st.subheader("next gen fusion 👌")
           with seccol:
             st.title(" ")
+            option = ''
+            st.write(option)
             clicked = st.button("⚠️")
             if clicked == True:
-              st.error("button pressed")
-            if clicked == False:
-              st.error("button unpressed")
+              option = st.selectbox(
+                "what was spotted?",
+                ("one", "two", "three"))
+            st.write(option)
             
           #columns
           col1, col2, col3 = st.columns(3)
