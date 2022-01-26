@@ -48,9 +48,9 @@ def mainpage():
           with seccol:
             st.title(" ")
             clicked = st.button("⚠️")
-            if clicked = True:
+            if clicked == True:
               st.error("button pressed")
-            if clicked = False:
+            if clicked == False:
               st.error("button unpressed")
             
           #columns
