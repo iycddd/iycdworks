@@ -41,14 +41,21 @@ def main():
 
 def mainpage():
   
+          #layout columns
           firstcol, blankcol, seccol, blankcol2, thirdcol = st.columns((3,2,6,2,3))
+          
+          #header column
           with firstcol:
             st.title("CV DASHBOARD")
             st.subheader("next gen fusion 👌")
+            
+          #sightings input column
           with thirdcol:
             st.title(" ")
             spotted = st.text_input("TARGET SIGHTED:", "spotted")
             st.write("input 'clear' to clear")
+            
+          #sightings display column
           with seccol:
             st.title(" ")
             if spotted == "clear":
@@ -60,7 +67,7 @@ def mainpage():
           #columns
           col1, col2, col3 = st.columns(3)
           
-          #content
+          #vidcontent
           with col1:
             st.header("feed A")
             st.video(vidlist[0])
@@ -85,7 +92,7 @@ def feedA():
           #columns
           col1, col2 = st.columns((3,slideval))
           
-          #content
+          #vidcontent
           with col1:
             st.header("feed A")    
             st.video(vidlist[0])
@@ -126,7 +133,7 @@ def feedC():
           #columns
           col1, col2 = st.columns((3,slideval))
           
-          #content
+          #vidcontent
           with col1:
             st.header("feed C")
             st.video(vidlist[4])
