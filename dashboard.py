@@ -2,31 +2,6 @@
 ## setup ##
 ###########
 
-import streamlit as st
-import pandas as pd
-import numpy as np
-
-import asyncio
-import logging
-import queue
-import threading
-import urllib.request
-from pathlib import Path
-from typing import List, NamedTuple
-
-try:
-    from typing import Literal
-except ImportError:
-    from typing_extensions import Literal  # type: ignore
-
-from streamlit_webrtc import (
-    AudioProcessorBase,
-    RTCConfiguration,
-    VideoProcessorBase,
-    WebRtcMode,
-    webrtc_streamer,
-)
-
 #widen page
 st.set_page_config(layout="wide")
 
@@ -67,7 +42,16 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
 ## main ##
 
 if add_selectbox == 'main':
-  
+  mainpage()
+elif add_selectbox == 'feed A':
+  feedA()
+elif add_selectbox == 'feed B':
+  feedB()
+elif add_selectbox == 'feed C':
+  feedC()
+
+
+def mainpage():
           firstcol, seccol = st.columns((12,1))
           with firstcol:
             st.title("CV DASHBOARD")
@@ -96,8 +80,7 @@ if add_selectbox == 'main':
           
 ## feed A ##
          
-elif add_selectbox == 'feed A':
-          
+def feedA():
           #zoomslider
           with st.expander("adjust zoom"):
             slideval = st.slider("", 1, 5, 3, None, None, 1)
@@ -115,7 +98,7 @@ elif add_selectbox == 'feed A':
           
 ## feed B ##
           
-elif add_selectbox == 'feed B':
+def feedB():
           
           #zoomslider
           with st.expander("adjust zoom"):
@@ -135,7 +118,7 @@ elif add_selectbox == 'feed B':
           
 ## feed C ##
           
-elif add_selectbox == 'feed C':
+def feedC():
           
           #zoomslider
           with st.expander("adjust zoom"):
