@@ -13,17 +13,9 @@ add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C"))
 
-
-
-
-
-
-
 #############
 ## vidlist ##
 #############
-
-#just need to change these to get live videos working i think :)
 
 vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=hG5i6XM6x7w",
@@ -33,25 +25,19 @@ vidlist = ["https://www.youtube.com/watch?v=CVHj7Wxhvdo",
           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
 
 
-
-
-
-
-
 #############
 ## display ##
 #############
 
-## main ##
-
-if add_selectbox == 'main':
-  mainpage()
-elif add_selectbox == 'feed A':
-  feedA()
-elif add_selectbox == 'feed B':
-  feedB()
-elif add_selectbox == 'feed C':
-  feedC()
+def main():
+  if add_selectbox == 'main':
+    mainpage()
+  elif add_selectbox == 'feed A':
+   feedA()
+  elif add_selectbox == 'feed B':
+    feedB()
+  elif add_selectbox == 'feed C':
+    feedC()
 
 
 def mainpage():
@@ -138,3 +124,5 @@ def feedC():
           with col2:
             st.header("anafi")
             st.video(vidlist[5])
+
+main()
