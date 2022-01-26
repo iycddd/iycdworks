@@ -12,7 +12,9 @@ st.set_page_config(layout="wide")
 #sidebar
 add_selectbox = st.sidebar.radio(
   "menu",
-  ("main", "feed A", "feed B", "feed C", "data"))
+  ("main", "feed A", "feed B", "feed C",
+   #"data"
+  ))
 
 #############
 ## vidlist ##
