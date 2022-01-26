@@ -50,10 +50,10 @@ def mainpage():
             spotted = st.text_input("", "spotted")
           with seccol:
             st.title(" ")
-            if spotted is not "clear":
-              st.write("⚠️ ", spotted, "has been spotted ⚠️")
+            if spotted == "clear":
+              st.empty()
             else:
-              st.empty()           
+              st.write("⚠️ ", spotted, "has been spotted ⚠️")           
             
           #columns
           col1, col2, col3 = st.columns(3)
