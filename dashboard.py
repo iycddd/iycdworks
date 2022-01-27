@@ -1,4 +1,4 @@
-showWarningOnDirectExecution = false
+showWarningOnDirectExecution = False
 
 ###########
 ## setup ##
