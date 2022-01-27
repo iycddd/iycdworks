@@ -1,4 +1,5 @@
 showErrorDetails = False
+hideTopBar = True
 
 ###########
 ## setup ##
