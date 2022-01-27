@@ -19,7 +19,7 @@ from streamlit_webrtc import (
 st.set_page_config(layout="wide")
 
 #authentication system
-def authenticate(status):
+def authenticate():
     names = ['tim']
     usernames = ['iycddd']
     passwords = ['123']
@@ -48,7 +48,7 @@ def authenticate(status):
 #    elif st.session_state['authentication_status'] == None:
 #        st.warning('Please enter your username and password')
 
-while status == 0:
+while authenticate() == 0:
     authenticate()
 
 #sidebar
