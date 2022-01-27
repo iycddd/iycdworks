@@ -19,7 +19,7 @@ from streamlit_webrtc import (
 st.set_page_config(layout="wide")
 
 #authentication system
-def authenticate():
+def authenticate(status):
     names = ['tim']
     usernames = ['iycddd']
     passwords = ['123']
@@ -38,16 +38,17 @@ def authenticate():
         st.error('Username/password is incorrect')
     elif authentication_status == None:
         st.warning('Please enter your username and password')
+    return 'fail'
+#    if st.session_state['authentication_status']:
+#        st.write('Welcome *%s*' % (st.session_state['name']))
+#        st.title('Some content')
+#    elif st.session_state['authentication_status'] == False:
+#        st.error('Username/password is incorrect')
+#    elif st.session_state['authentication_status'] == None:
+#        st.warning('Please enter your username and password')
 
-    if st.session_state['authentication_status']:
-        st.write('Welcome *%s*' % (st.session_state['name']))
-        st.title('Some content')
-    elif st.session_state['authentication_status'] == False:
-        st.error('Username/password is incorrect')
-    elif st.session_state['authentication_status'] == None:
-        st.warning('Please enter your username and password')
-
-authenticate()
+while status == 'fail',
+    authenticate()
 
 #sidebar
 add_selectbox = st.sidebar.radio(
