@@ -1,3 +1,5 @@
+showWarningOnDirectExecution = false
+
 ###########
 ## setup ##
 ###########
