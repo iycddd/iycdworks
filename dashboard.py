@@ -47,7 +47,7 @@ def authenticate(status):
 #    elif st.session_state['authentication_status'] == None:
 #        st.warning('Please enter your username and password')
 
-while status == 'fail',
+while status == 'fail':
     authenticate()
 
 #sidebar
