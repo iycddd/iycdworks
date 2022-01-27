@@ -34,11 +34,12 @@ def authenticate(status):
     if authentication_status:
         st.write('Welcome *%s*' % (name))
         st.title('Some content')
+    return 1
     elif authentication_status == False:
         st.error('Username/password is incorrect')
     elif authentication_status == None:
         st.warning('Please enter your username and password')
-    return 'fail'
+    return 0
 #    if st.session_state['authentication_status']:
 #        st.write('Welcome *%s*' % (st.session_state['name']))
 #        st.title('Some content')
@@ -47,7 +48,7 @@ def authenticate(status):
 #    elif st.session_state['authentication_status'] == None:
 #        st.warning('Please enter your username and password')
 
-while status == 'fail':
+while status == 0:
     authenticate()
 
 #sidebar
