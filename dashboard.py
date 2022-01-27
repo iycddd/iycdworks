@@ -21,7 +21,7 @@ st.set_page_config(layout="wide")
 #authentication system
 def authenticate():
     login = False
-    while login is False
+    while login == False:
         names = ['tim']
         usernames = ['iycddd']
         passwords = ['123']
