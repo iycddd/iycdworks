@@ -32,8 +32,7 @@ def authenticate():
     name, authentication_status = authenticator.login('Login','main')
 
     if authentication_status:
-        st.write('Welcome *%s*' % (name))
-        st.title('Some content')
+        st.write('okayyyyyyy')
         return 1
     elif authentication_status == False:
         st.error('Username/password is incorrect')
