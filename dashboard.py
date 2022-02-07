@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 from streamlit_webrtc import webrtc_streamer
-from st_aggrid import AgGrid, GridOptionsBuilder
+from st_aggrid import AgGrid, GridOptionsBuilder, shared
 
 #widen page
 st.set_page_config(layout="wide")
