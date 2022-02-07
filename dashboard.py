@@ -215,6 +215,7 @@ def data():
 
         df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
                            'vehicle': ['A', 'B', 'A'],
+                           'quantity': ['1', '2', '1']
                           })
         grid_return = AgGrid(df,
                              editable=True,
