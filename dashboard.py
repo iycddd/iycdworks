@@ -216,13 +216,13 @@ def data():
                 "banana": np.random.randint(0, 10, 5),
                 "chocolate": np.random.randint(0, 10, 5),
             }
-            return pd.DataFrame(dummy_data)
+            return pd.DataFrame(dummy_data, editable=True)
 
 
         def display_table(df: pd.DataFrame) -> AgGrid:
             # Configure AgGrid options
             gb = GridOptionsBuilder.from_dataframe(df)
-            gb.configure_selection("single", editable=True)
+            gb.configure_selection("single")
             return AgGrid(
                 df,
                 gridOptions=gb.build(),
