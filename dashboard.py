@@ -193,19 +193,38 @@ def feedC():
 
 def data():
 
-        df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
-        grid_return = AgGrid(df,
-                             editable=True,
-                             #gridOptions=gb.build(),
-                             #data_return_mode="filtered_and_sorted",
-                             #update_mode="no_update",
-                             #fit_columns_on_grid_load=True,
-                             #theme = light
-                            )
-        new_df = grid_return['data']
-        gridApi.applyTransaction({add: [{}]})
-        
-        #if button gridApi.applyTransaction({add: [{ }] })
-        
+#        df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
+#        grid_return = AgGrid(df,
+#                             editable=True,
+#                             #gridOptions=gb.build(),
+#                             #data_return_mode="filtered_and_sorted",
+#                             #update_mode="no_update",
+#                             #fit_columns_on_grid_load=True,
+#                             #theme = light
+#                            )
+#        new_df = grid_return['data']
+#        gridApi.applyTransaction({add: [{}]})
+#        
+#        #if button gridApi.applyTransaction({add: [{ }] })
+
+    np.random.seed(42)
+    
+    def fetch_data():
+        dummy_data = {
+           "date": pd.date_range("2020-01-01", periods=5),
+           "group": list("AAABB"),
+           "apple": np.random.randint(0, 10, 5),
+           "banana": np.random.randint(0, 10, 5),
+           "chocolate": np.random.randint(0, 10, 5),
+        }
+        return pd.DataFrame(dummy_data)
+
+
+    def display_table(df: pd.DataFrame) -> AgGrid:
+       # Configure AgGrid options
+      gb = GridOptionsBuilder.from_dataframe(df)
+      gb.configure_selection("single")
+      return AgGrid(
+
 
 main()
