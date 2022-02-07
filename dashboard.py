@@ -222,12 +222,7 @@ def data():
         
         newrow = JsCode(
            """
-            function createNewRowData() {
-              const newData = {
-                
-              };
-              return newData;
-            }
+            gridOptions.api.applyTransaction({ add: gridOptions.rowData })
        
         """)
            
