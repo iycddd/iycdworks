@@ -203,8 +203,8 @@ def data():
                             )
         new_df = grid_return['data']
        
-        newrow = st.button('hi'):
-            gridApi.applyTransaction({add: [{ }] })
+        
+        #if button gridApi.applyTransaction({add: [{ }] })
         
 
 main()
