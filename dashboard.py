@@ -207,9 +207,12 @@ def data2():
     col1 = st.text_input("Timestamp")
     col2 = st.text_input("Detected")
     col3 = st.text_input("Quantity")
-
-    if st.button("Add row"):
+    
+    def addrow():
        get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
+    
+    if st.button("Add row"):
+       addrow()
 
     st.write(pd.DataFrame(get_data()))
     
