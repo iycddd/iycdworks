@@ -222,10 +222,12 @@ def data():
         
         newrow = JsCode(
            """
-            const row = //someNewRowDataHere
-
-            this.gridOptions.rowData.push(row)
-            this.gridApi.setRowData(this.gridOptions.rowData)
+            function createNewRowData() {
+              const newData = {
+                
+              };
+              return newData;
+            }
        
         """)
            
