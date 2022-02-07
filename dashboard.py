@@ -205,7 +205,7 @@ def data2():
     
     def get_dataframe():
         return pd.DataFrame(
-            np.random.randn(50, 20)
+            np.random.randn(50, 20),
             columns=('col %d' % i for i in range(20)))
 
     df = get_dataframe()
