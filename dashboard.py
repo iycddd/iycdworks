@@ -211,7 +211,7 @@ def data():
                            'vehicle': ['A', 'B', 'A'],
                           })
         grid_return = AgGrid(df,
-                             #editable=True,
+                             editable=True,
                              #gridOptions=gb.build(),
                              #data_return_mode="filtered_and_sorted",
                              #update_mode="no_update",
