@@ -220,9 +220,9 @@ def data():
                             )
         new_df = grid_return['data']
 
-        const row = //someNewRowDataHere
+        row = someNewRowDataHere
 
-        this.gridOptions.rowData.push(row)
-        this.gridApi.setRowData(this.gridOptions.rowData)
+        df.gridOptions.rowData.push(row)
+        df.gridApi.setRowData(df.gridOptions.rowData)
         
 main()
