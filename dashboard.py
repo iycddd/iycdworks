@@ -9,7 +9,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
-from st_aggrid import AgGrid
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 #widen page
 st.set_page_config(layout="wide")
