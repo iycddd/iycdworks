@@ -227,6 +227,6 @@ def data():
         """)
            
         if st.button('add'):
-            newrow
+            gridOptions.api.applyTransaction({ add: gridOptions.rowData })
         
 main()
