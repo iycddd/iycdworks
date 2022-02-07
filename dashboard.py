@@ -10,16 +10,10 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 
-###
-
-from streamlit_webrtc import (
-    AudioProcessorBase
-)
-
-###
-
 #widen page
 st.set_page_config(layout="wide")
+
+###
 
 #authentication system
 def authenticate():
@@ -51,13 +45,15 @@ def authenticate():
 #    elif st.session_state['authentication_status'] == None:
 #        st.warning('Please enter your username and password')
 
-authenticate()
+#authenticate()
+
+###
 
 #sidebar
 add_selectbox = st.sidebar.radio(
   "menu",
   ("main", "feed A", "feed B", "feed C",
-   #"data"
+   "data"
   ))
 
 #############
@@ -85,8 +81,8 @@ def main():
     feedB()
   elif add_selectbox == 'feed C':
     feedC()
-#  elif add_selectbox == 'data':
-#    data()
+  elif add_selectbox == 'data':
+    data()
 
 def mainpage():
 
