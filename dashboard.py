@@ -200,13 +200,13 @@ def feedC():
 
 def data2():
 
-       # Randomly fill a dataframe and cache it
-    @st.cache(allow_output_mutation=True)
+    # Randomly fill a dataframe and cache it
+    #@st.cache(allow_output_mutation=True)
+    
     def get_dataframe():
         return pd.DataFrame(
-            np.random.randn(50, 20),
+            np.random.randn(10, 5)
             columns=('col %d' % i for i in range(20)))
-
 
     df = get_dataframe()
 
