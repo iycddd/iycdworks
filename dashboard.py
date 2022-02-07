@@ -201,26 +201,14 @@ def feedC():
 
 def data2():
 
-    # Randomly fill a dataframe and cache it
-    #@st.cache(allow_output_mutation=True)
-    
-    def get_dataframe():
-        return pd.DataFrame(
-            np.random.randn(50, 20),
-            columns=('col %d' % i for i in range(20)))
+    @st.cache(allow_output_mutation=True)
+        def get_data():
+           return []
 
-    df = get_dataframe()
+        if st.button("Add row"):
+           get_data().append({"Spotted": spotted})
 
-    # Create row, column, and value inputs
-    row = st.number_input('row', max_value=df.shape[0])
-    col = st.number_input('column', max_value=df.shape[1])
-    value = st.number_input('value')
-
-    # Change the entry at (row, col) to the given value
-    df.values[row][col] = value
-
-    # And display the result!
-    st.dataframe(df)
+        st.write(pd.DataFrame(get_data()))
     
     
 def data():
