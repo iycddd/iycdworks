@@ -229,6 +229,6 @@ def data():
         if st.button('add'):
             #gridOptions.api.applyTransaction({ add: gridOptions.rowData })
             #rowData.splice(targetIndex, 0, newRow)
-            GridApi.applyTransaction({ add: [ ] })
+            GridApi.applyTransaction({ add: [ ' ' ] })
             
 main()
