@@ -220,14 +220,16 @@ def data():
                             )
         new_df = grid_return['data']
         
-        newrow = JsCode(
-           """
-            gridApi.applyTransaction({ add:[ ] })
+        def newrow():
+            JsCode(
+             """
+             gridApi.applyTransaction({ add:[ ] })
        
-        """)
+             """)
+            new_df = grid_return['data']
            
         if st.button('add'):
-            newrow
+            newrow()
            
             
 main()
