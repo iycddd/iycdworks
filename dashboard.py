@@ -222,7 +222,7 @@ def data():
         
         newrow = JsCode(
              """
-             gridApi.applyTransaction({ add:[ ] })
+             gridApi.applyTransaction({ add:[{ }] })
        
              """)
            
