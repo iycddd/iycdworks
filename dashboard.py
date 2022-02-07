@@ -238,8 +238,7 @@ def data():
         rng = np.random.default_rng(2021)
         N_SAMPLES = 100
         N_FEATURES = 10
-        df = pd.DataFrame(rng.integers(0, N_SAMPLES, size=(
-            N_SAMPLES, N_FEATURES)), columns=list(string.ascii_uppercase[:N_FEATURES]))
+        df = pd.DataFrame(rng.integers(0, N_SAMPLES, size=(N_SAMPLES, N_FEATURES)), columns=list(string.ascii_uppercase[:N_FEATURES]))
 
         st.info("Select a row to remove it")
         response = display_table(df)
