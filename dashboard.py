@@ -216,7 +216,7 @@ def data():
                 "banana": np.random.randint(0, 10, 5),
                 "chocolate": np.random.randint(0, 10, 5),
             }
-            return pd.DataFrame(dummy_data, editable=True)
+            return pd.DataFrame(dummy_data)
 
 
         def display_table(df: pd.DataFrame) -> AgGrid:
