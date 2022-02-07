@@ -220,7 +220,7 @@ def data():
                             )
         new_df = grid_return['data']
         
-        cellsytle_jscode = JsCode(
+        newrow = JsCode(
            """
             const row = //someNewRowDataHere
 
@@ -229,6 +229,7 @@ def data():
        
         """)
            
-           
+        if st.button('add'):
+            newrow
         
 main()
