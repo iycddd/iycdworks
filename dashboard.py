@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 from streamlit_webrtc import webrtc_streamer
-from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
-from st_aggrid.shared import GridUpdateMode, DataReturnMode
+from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
+from st_aggrid.shared import GridUpdateMode, DataReturnMode, JsCode
 
 #widen page
 st.set_page_config(layout="wide")
@@ -219,5 +219,15 @@ def data():
                              #theme = light
                             )
         new_df = grid_return['data']
+        
+        cellsytle_jscode = JsCode(
+           """
+           $( '#newRow' ).on( 'click', function() {
+            gridOptions.api.applyTransaction({ add: gridOptions.rowData });
+            } );
+       
+        """)
+           
+           
         
 main()
