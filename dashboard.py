@@ -197,26 +197,7 @@ def feedC():
         st.video(vidlist[5])
 
 ## data ##
-
-def data2():
-
-    @st.cache(allow_output_mutation=True)
-    def get_data():
-       return []
-
-    col1 = st.text_input("Timestamp")
-    col2 = st.text_input("Detected")
-    col3 = st.text_input("Quantity")
-    
-    def addrow():
-       get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
-    
-    if st.button("Add row"):
-       addrow()
-
-    st.write(pd.DataFrame(get_data()))
-    
-    
+   
 def data():
 
 #        df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
@@ -253,6 +234,23 @@ def data():
            
         if st.button('add'):
             newrow
-           
+        
+def data2():
+
+    @st.cache(allow_output_mutation=True)
+    def get_data():
+       return []
+
+    col1 = st.text_input("Timestamp")
+    col2 = st.text_input("Detected")
+    col3 = st.text_input("Quantity")
+    
+    def addrow():
+       get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
+    
+    if st.button("Add row"):
+       addrow()
+
+    st.write(pd.DataFrame(get_data()))
             
 main()
