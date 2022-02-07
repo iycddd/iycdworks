@@ -200,31 +200,26 @@ def feedC():
 
 def data2():
 
-    # https://gist.githubusercontent.com/tvst/036da038ab3e999a64497f42de966a92/raw/f0db274dd4d295ee173b4d52939be5ad55ae058d/SessionState.py
+       # Randomly fill a dataframe and cache it
+    @st.cache(allow_output_mutation=True)
+    def get_dataframe():
+        return pd.DataFrame(
+            np.random.randn(50, 20),
+            columns=('col %d' % i for i in range(20)))
 
-    # Create an empty dataframe
-    data = pd.DataFrame(columns=["Random"])
-    st.text("Original dataframe")
 
-    # with every interaction, the script runs from top to bottom
-    # resulting in the empty dataframe
-    st.dataframe(data) 
+    df = get_dataframe()
 
-    # persist state of dataframe
-    session_state = SessionState.get(df=data)
+    # Create row, column, and value inputs
+    row = st.number_input('row', max_value=df.shape[0])
+    col = st.number_input('column', max_value=df.shape[1])
+    value = st.number_input('value')
 
-    # random value to append; could be a num_input widget if you want
-    random_value = np.random.randn()
+    # Change the entry at (row, col) to the given value
+    df.values[row][col] = value
 
-    if st.button("Append random value"):
-        # update dataframe state
-        session_state.df = session_state.df.append({'Random': random_value}, ignore_index=True)
-        st.text("Updated dataframe")
-        st.dataframe(session_state.df)
-
-    # still empty as state is not persisted
-    st.text("Original dataframe")
-    st.dataframe(data)
+    # And display the result!
+    st.dataframe(df)
     
     
 def data():
