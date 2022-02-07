@@ -207,15 +207,14 @@ def data():
 #        
 
         np.random.seed(42)
-
-
+    
         def fetch_data():
             dummy_data = {
-            "date": pd.date_range("2020-01-01", periods=5),
-            "group": list("AAABB"),
-            "apple": np.random.randint(0, 10, 5),
-            "banana": np.random.randint(0, 10, 5),
-            "chocolate": np.random.randint(0, 10, 5),
+                "date": pd.date_range("2020-01-01", periods=5),
+                "group": list("AAABB"),
+                "apple": np.random.randint(0, 10, 5),
+                "banana": np.random.randint(0, 10, 5),
+                "chocolate": np.random.randint(0, 10, 5),
             }
             return pd.DataFrame(dummy_data)
 
@@ -225,6 +224,33 @@ def data():
             gb = GridOptionsBuilder.from_dataframe(df)
             gb.configure_selection("single")
             return AgGrid(
+                df,
+                gridOptions=gb.build(),
+                # this override the default VALUE_CHANGED
+                update_mode=shared.GridUpdateMode.MODEL_CHANGED,
+            )
 
+        # Initialize 'display_table' to False (if needed)
+        if 'display_table' not in st.session_state:
+            st.session_state.display_table = False
+
+        columns = st.columns(2)
+
+        # Buttons to display/hide table
+        with columns[0]:
+            if st.button("display table"):
+                st.session_state.display_table = True
+        with columns[1]:
+            if st.button("hide table"):
+                st.session_state.display_table = False
+
+        # We display table based on session_state
+        # instead of button press: the former is preserved
+        # at re-run, while the latter isn't
+        if st.session_state.display_table:
+            t = display_table(fetch_data())
+            st.json(t["selected_rows"])
+            
+            
 
 main()
