@@ -207,7 +207,9 @@ def data():
 #        gridApi.applyTransaction({add: [{}]})
 #        
 
-        df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
+        df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
+                           'vehicle': ['A', 'B', 'A'],
+                          })
         grid_return = AgGrid(df,
                              #editable=True,
                              #gridOptions=gb.build(),
