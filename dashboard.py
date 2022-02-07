@@ -202,10 +202,8 @@ def data():
                              #theme = light
                             )
         new_df = grid_return['data']
+       
+        st.button('hi'):gridApi.applyTransaction({add: [{ }] })
         
-        const row = //someNewRowDataHere
-
-        this.gridOptions.rowData.push(row)
-        this.gridApi.setRowData(this.gridOptions.rowData)
 
 main()
