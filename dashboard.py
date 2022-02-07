@@ -203,7 +203,7 @@ def data():
                             )
         new_df = grid_return['data']
        
-        st.button('hi'):gridApi.applyTransaction({add: [{ }] })
+        newrow = st.button('hi'):gridApi.applyTransaction({add: [{ }] })
         
 
 main()
