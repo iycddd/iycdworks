@@ -222,13 +222,12 @@ def data():
         
         newrow = JsCode(
            """
-            gridOptions.api.applyTransaction({ add: gridOptions.rowData })
+            gridApi.applyTransaction({ add:[ ] })
        
         """)
            
         if st.button('add'):
-            #gridOptions.api.applyTransaction({ add: gridOptions.rowData })
-            #rowData.splice(targetIndex, 0, newRow)
-            GridApi.applyTransaction({ add })
+            newrow
+           
             
 main()
