@@ -201,13 +201,17 @@ def feedC():
 def data2():
 
     @st.cache(allow_output_mutation=True)
-    def get_data():
-       return []
+        def get_data():
+           return []
 
-    if st.button("Add row"):
-       get_data().append({"Spotted": spotted})
+        user_id = st.text_input("User ID")
+        foo = st.slider("foo", 0, 100)
+        bar = st.slider("bar", 0, 100)
 
-    st.write(pd.DataFrame(get_data()))
+        if st.button("Add row"):
+           get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+
+        st.write(pd.DataFrame(get_data()))
     
     
 def data():
