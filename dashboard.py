@@ -205,7 +205,6 @@ def data():
 #        new_df = grid_return['data']
 #        gridApi.applyTransaction({add: [{}]})
 #        
-#        #if button gridApi.applyTransaction({add: [{ }] })
 
     np.random.seed(42)
     
