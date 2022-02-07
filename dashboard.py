@@ -8,7 +8,6 @@ hideTopBar = True
 import streamlit as st
 import numpy as np
 import pandas as pd
-import SessionState
 import streamlit_authenticator as stauth
 from streamlit_webrtc import webrtc_streamer
 
