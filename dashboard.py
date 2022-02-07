@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 from streamlit_webrtc import webrtc_streamer
-from st_aggrid import AgGrid, GridOptionsBuilder, shared
+from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 
 #widen page
 st.set_page_config(layout="wide")
@@ -206,50 +206,44 @@ def data():
 #        gridApi.applyTransaction({add: [{}]})
 #        
 
-        np.random.seed(42)
-    
-        def fetch_data():
-            dummy_data = {
-                "date": pd.date_range("2020-01-01", periods=5),
-                "group": list("AAABB"),
-                "apple": np.random.randint(0, 10, 5),
-                "banana": np.random.randint(0, 10, 5),
-                "chocolate": np.random.randint(0, 10, 5),
-            }
-            return pd.DataFrame(dummy_data)
-
-
         def display_table(df: pd.DataFrame) -> AgGrid:
             # Configure AgGrid options
             gb = GridOptionsBuilder.from_dataframe(df)
-            gb.configure_selection("single")
+            gb.configure_selection('single', use_checkbox=True)
+
+            # Custom JS code for interactive rows deletion
+            # For credits SEE: 
+            # https://github.com/PablocFonseca/streamlit-aggrid/blob/1acb526ba43b5aac9c8eb22cc54eeb05696cd84d/examples/example_highlight_change.py#L21
+            # https://ag-grid.zendesk.com/hc/en-us/articles/360020160932-Removing-selected-rows-or-cells-when-Backspace-or-Delete-is-pressed
+            js = JsCode("""
+            function(e) {
+                let api = e.api;        
+                let sel = api.getSelectedRows();
+
+                api.applyTransaction({remove: sel});
+            };
+            """)
+            gb.configure_grid_options(onRowSelected=js) 
             return AgGrid(
                 df,
                 gridOptions=gb.build(),
                 # this override the default VALUE_CHANGED
-                update_mode=shared.GridUpdateMode.MODEL_CHANGED,
+                update_mode=GridUpdateMode.MODEL_CHANGED,
+                # needed for js injection
+                allow_unsafe_jscode=True
             )
 
-        # Initialize 'display_table' to False (if needed)
-        if 'display_table' not in st.session_state:
-            st.session_state.display_table = False
 
-        columns = st.columns(2)
+        # Define dummy data
+        rng = np.random.default_rng(2021)
+        N_SAMPLES = 100
+        N_FEATURES = 10
+        df = pd.DataFrame(rng.integers(0, N_SAMPLES, size=(
+            N_SAMPLES, N_FEATURES)), columns=list(string.ascii_uppercase[:N_FEATURES]))
 
-        # Buttons to display/hide table
-        with columns[0]:
-            if st.button("display table"):
-                st.session_state.display_table = True
-        with columns[1]:
-            if st.button("hide table"):
-                st.session_state.display_table = False
-
-        # We display table based on session_state
-        # instead of button press: the former is preserved
-        # at re-run, while the latter isn't
-        if st.session_state.display_table:
-            t = display_table(fetch_data())
-            st.json(t["selected_rows"])
+        st.info("Select a row to remove it")
+        response = display_table(df)
+        st.write(f"Dataframe shape: {response['data'].shape}")
             
             
 
