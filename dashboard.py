@@ -202,6 +202,10 @@ def data():
                              #theme = light
                             )
         new_df = grid_return['data']
+        
+        const row = //someNewRowDataHere
 
+        this.gridOptions.rowData.push(row)
+        this.gridApi.setRowData(this.gridOptions.rowData)
 
 main()
