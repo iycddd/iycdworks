@@ -203,7 +203,7 @@ def data():
                              #theme = light
                             )
         new_df = grid_return['data']
-       
+        gridApi.applyTransaction({add: [{}]})
         
         #if button gridApi.applyTransaction({add: [{ }] })
         
