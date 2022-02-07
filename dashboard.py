@@ -222,9 +222,10 @@ def data():
         
         cellsytle_jscode = JsCode(
            """
-           $( '#newRow' ).on( 'click', function() {
-            gridOptions.api.applyTransaction({ add: gridOptions.rowData });
-            } );
+            const row = //someNewRowDataHere
+
+            this.gridOptions.rowData.push(row)
+            this.gridApi.setRowData(this.gridOptions.rowData)
        
         """)
            
