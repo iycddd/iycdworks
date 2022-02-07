@@ -211,11 +211,11 @@ def data():
 
         def fetch_data():
             dummy_data = {
-                "date": pd.date_range("2020-01-01", periods=5),
-                "group": list("AAABB"),
-                "apple": np.random.randint(0, 10, 5),
-                "banana": np.random.randint(0, 10, 5),
-                "chocolate": np.random.randint(0, 10, 5),
+            "date": pd.date_range("2020-01-01", periods=5),
+            "group": list("AAABB"),
+            "apple": np.random.randint(0, 10, 5),
+            "banana": np.random.randint(0, 10, 5),
+            "chocolate": np.random.randint(0, 10, 5),
             }
             return pd.DataFrame(dummy_data)
 
