@@ -219,10 +219,5 @@ def data():
                              #theme = light
                             )
         new_df = grid_return['data']
-
-        row = someNewRowDataHere
-
-        df.gridOptions.rowData.push(row)
-        df.gridApi.setRowData(df.gridOptions.rowData)
         
 main()
