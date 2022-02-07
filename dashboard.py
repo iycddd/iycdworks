@@ -222,7 +222,7 @@ def data():
         def display_table(df: pd.DataFrame) -> AgGrid:
             # Configure AgGrid options
             gb = GridOptionsBuilder.from_dataframe(df)
-            gb.configure_selection("single")
+            gb.configure_selection("single", editable=True)
             return AgGrid(
                 df,
                 gridOptions=gb.build(),
@@ -248,7 +248,7 @@ def data():
         # instead of button press: the former is preserved
         # at re-run, while the latter isn't
         if st.session_state.display_table:
-            t = display_table(fetch_data(), editable = True)
+            t = display_table(fetch_data())
             st.json(t["selected_rows"])
             
             
