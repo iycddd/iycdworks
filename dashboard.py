@@ -201,13 +201,13 @@ def feedC():
 def data2():
 
     @st.cache(allow_output_mutation=True)
-        def get_data():
-           return []
+    def get_data():
+       return []
 
-        if st.button("Add row"):
-           get_data().append({"Spotted": spotted})
+    if st.button("Add row"):
+       get_data().append({"Spotted": spotted})
 
-        st.write(pd.DataFrame(get_data()))
+    st.write(pd.DataFrame(get_data()))
     
     
 def data():
