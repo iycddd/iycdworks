@@ -207,40 +207,49 @@ def data():
 #        gridApi.applyTransaction({add: [{}]})
 #        
 
-        vpth = “your path” # path that contains the csv file
-        csvfl = “tst.csv” # I used a small csv file containing 2 columns: Name & Amt
-        tdf = pd.read_csv(vpth + csvfl) # load csv into dataframe
+        @st.cache(allow_output_mutation=True)
+        def load_data():
+            df = pd.DataFrame({'fruit':['Apple', 'Banana'], 'unit_price':[50,25], 'num_units':[0,0], 'total_price':[0,0]})
+            return df
 
-        gb = GridOptionsBuilder.from_dataframe(tdf)
-        gb.configure_column(“Name”, header_name=(“F Name”), editable=True)
-        gb.configure_column(“Amt”, header_name=(“Amount”), editable=True, type=[“numericColumn”,“numberColumnFilter”,“customNumericFormat”], precision=0)
+        loaded_data = load_data()
 
+        num_units = st.slider('Select Number of Units', 0, 130, 1)
+        loaded_data['num_units'] = num_units
+
+        js_calculate_total = JsCode("""
+
+            function (params) {
+
+                 var unit_price = params.data.unit_price;
+                 var num_units = params.data.num_units;
+                 return (unit_price * num_units).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+            }
+
+        """)
+
+        gb = GridOptionsBuilder.from_dataframe(loaded_data) #Infer basic colDefs from dataframe types
+        # Grid Builder configurations
+        gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
+        # Below, the first parameters are all the same as in the load_data dateframe, but the "header_name" is what is displayed and can be anything 
+        gb.configure_column("fruit", header_name='Fruit', pivot=True, sort='asc')
+        gb.configure_column("unit_price", header_name='Unit Price', sort='desc', type=["numericColumn","numberColumnFilter"], valueFormatter="data.estimatednotional_usd.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})", aggFunc='sum') # defines numeric column
+        gb.configure_column("total_price", header_name='Total Price', type=["numericColumn","numberColumnFilter"], editable=False, valueGetter=js_calculate_total) # uses custom value getter for calculated column
         gridOptions = gb.build()
-        dta = AgGrid(tdf,
-        gridOptions=gridOptions,
-        reload_data=False,
-        height=200,
-        editable=True,
-        theme=“streamlit”,
-        data_return_mode=DataReturnMode.AS_INPUT,
-        update_mode=GridUpdateMode.MODEL_CHANGED)
 
-        st.write(“Please change an amount to test this”)
-
-        if st.button(“Iterate through aggrid dataset”):
-        for i in range(len(dta[‘data’])): # or you can use for i in range(tdf.shape[0]):
-        st.caption(f"df line: {tdf.loc[i][0]} | {tdf.loc[i][1]} || AgGrid line: {dta[‘data’][‘Name’][i]} | {dta[‘data’][‘Amt’][i]}")
-
-            # check if any change has been done to any cell in any col by writing a caption out
-            if tdf.loc[i]['Name'] != dta['data']['Name'][i]:
-                st.caption(f"Name column data changed from {tdf.loc[i]['Name']} to {dta['data']['Name'][i]}...")
-                # consequently, you can write changes to a database if/as required
-
-            if tdf.loc[i]['Amt'] != dta['data']['Amt'][i]:
-                st.caption(f"Amt column data changed from {tdf.loc[i]['Amt']} to {dta['data']['Amt'][i]}...")
-
-        tdf = dta['data']    # overwrite df with revised aggrid data; complete dataset at one go
-        tdf.to_csv(vpth + 'file1.csv', index=False)  # re/write changed data to CSV if/as required
-        st.dataframe(tdf)    # confirm changes to df
+        grid_response = AgGrid(
+                loaded_data,
+                gridOptions = gridOptions,
+                height=200,
+                width='100%', # how much of the Streamlit page width this grid takes up
+                update_mode=GridUpdateMode.MODEL_CHANGED,
+                fit_columns_on_grid_load=True, # automatically fits all columns to be displayed in the grid in one view (doesn't always seem to work)
+                allow_unsafe_jscode=True, # Set to True to allow the Javascript code to be injected
+                enable_enterprise_modules=True, # enables right click and fancy features - can add license key as another parameter (license_key='string') if you have one
+                key='select_grid', # stops grid from re-initialising every time the script is run
+                reload_data=True, # allows modifications to loaded_data to update this same grid entity
+                theme='light'
+                )
 
 main()
