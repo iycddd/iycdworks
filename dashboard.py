@@ -15,7 +15,7 @@ from streamlit_webrtc import webrtc_streamer
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import GridUpdateMode, DataReturnMode, JsCode
 
-import SessionState
+
 
 #widen page
 st.set_page_config(layout="wide")
