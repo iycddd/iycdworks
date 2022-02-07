@@ -248,7 +248,7 @@ def data():
         # instead of button press: the former is preserved
         # at re-run, while the latter isn't
         if st.session_state.display_table:
-            t = display_table(fetch_data())
+            t = display_table(fetch_data(), editable = True)
             st.json(t["selected_rows"])
             
             
