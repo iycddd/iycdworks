@@ -206,7 +206,7 @@ def data():
 #        gridApi.applyTransaction({add: [{}]})
 #        
 
-            np.random.seed(42)
+        np.random.seed(42)
 
 
         def fetch_data():
