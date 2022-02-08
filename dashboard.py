@@ -199,7 +199,7 @@ def data2():
        return []
       
     # Define dummy data
-    df() = pd.DataFrame({'timestamp': [],
+    df = pd.DataFrame({'timestamp': [],
                            'vehicle': [],
                            'quantity': []
                           })
@@ -210,7 +210,7 @@ def data2():
     
     def addrow():
        get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
-       df().append({"timestamp": col1, "vehicle": col2, "quantity": col3})
+       df.append({"timestamp": [col1], "vehicle": [col2], "quantity": [col3]})
         
     
     if st.button("Add row"):
