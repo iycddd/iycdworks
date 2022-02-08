@@ -273,6 +273,9 @@ def data3():
         # https://github.com/PablocFonseca/streamlit-aggrid/blob/1acb526ba43b5aac9c8eb22cc54eeb05696cd84d/examples/example_highlight_change.py#L21
         # https://ag-grid.zendesk.com/hc/en-us/articles/360020160932-Removing-selected-rows-or-cells-when-Backspace-or-Delete-is-pressed
         js = JsCode("""
+        
+        button onClick={() => addItems()}>Add Items</button
+        
         function(e) {
             let api = e.api;        
             let sel = api.getSelectedRows();
@@ -302,18 +305,6 @@ def data3():
     st.write(f"Dataframe shape: {response['data'].shape}")
      
         
-        
-    newrow = JsCode("""
-        function(e) {
-            let api = e.api;        
-            let sel = api.getSelectedRows();
-
-            api.applyTransaction({add: sel});
-        };
-        """)
-    gb.configure_grid_options(onRowSelected=js) 
-
-    if st.button('add'):
-        newrow
+      
         
 main()
