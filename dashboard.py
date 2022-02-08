@@ -232,20 +232,8 @@ def data3():
             
             alert(4);
             
-        };
+            api.applyTransaction({ add: newItems, addIndex: 2});
             
-        updateItems(value: String) {
-          var itemsToUpdate = [];
-          this.gridApi.forEachNodeAfterFilterAndSort(function(rowNode, index) {
-            if (!rowNode.selected) {
-              return;
-            }
-            var data = rowNode.data;
-            data.status.name = value;
-            itemsToUpdate.push(data);
-          });
-          var res = this.gridApi.updateRowData({ update: itemsToUpdate });
-          this.gridApi.deselectAll();//optional
         };
      
         """)
