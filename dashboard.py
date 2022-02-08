@@ -226,7 +226,7 @@ def data():
                              #update_mode="no_update",
                              #fit_columns_on_grid_load=True,
                              allow_unsafe_jscode=True
-                             theme = light
+                             #theme=light
                             )
         new_df = grid_return['data']
         
