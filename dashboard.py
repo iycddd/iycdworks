@@ -288,6 +288,18 @@ def data3():
             # needed for js injection
             allow_unsafe_jscode=True
         )
+    
+        things = JsCode("""
+        function(e) {
+            let api = e.api;        
+            let sel = api.getSelectedRows();
+
+            api.applyTransaction({add: sel});
+        };
+        """)
+
+        if st.button('add'):
+           things   
 
 
     # Define dummy data
@@ -300,16 +312,5 @@ def data3():
     response = display_table(df)
     st.write(f"Dataframe shape: {response['data'].shape}")
         
-    things = JsCode("""
-        function(e) {
-            let api = e.api;        
-            
-
-            api.applyTransaction({add});
-        };
-        """)
-
-    if st.button('add'):
-       things   
         
 main()
