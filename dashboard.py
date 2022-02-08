@@ -15,46 +15,8 @@ from streamlit_webrtc import webrtc_streamer
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import GridUpdateMode, DataReturnMode, JsCode
 
-
-
 #widen page
 st.set_page_config(layout="wide")
-
-###
-
-#authentication system
-def authenticate():
-    login = False
-    while login == False:
-        names = ['tim']
-        usernames = ['iycddd']
-        passwords = ['123']
-
-        hashed_passwords = stauth.hasher(passwords).generate()
-
-        authenticator = stauth.authenticate(names,usernames,hashed_passwords,
-            'some_cookie_name','some_signature_key',cookie_expiry_days=30)
-
-        name, authentication_status = authenticator.login('Login','main')
-
-        if authentication_status:
-            st.write('okayyyyyyy')
-            login = True
-        elif authentication_status == False:
-            st.error('Username/password is incorrect')
-        elif authentication_status == None:
-            st.warning('Please enter your username and password')
-#    if st.session_state['authentication_status']:
-#        st.write('Welcome *%s*' % (st.session_state['name']))
-#        st.title('Some content')
-#    elif st.session_state['authentication_status'] == False:
-#        st.error('Username/password is incorrect')
-#    elif st.session_state['authentication_status'] == None:
-#        st.warning('Please enter your username and password')
-
-#authenticate()
-
-###
 
 #sidebar
 add_selectbox = st.sidebar.radio(
@@ -269,8 +231,7 @@ def data3():
             
             alert(4);
             
-            api.applyTransaction({update: sel})
-            
+            sel.setData('0');
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
