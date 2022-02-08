@@ -246,7 +246,7 @@ def data3():
           });
           var res = this.gridApi.updateRowData({ update: itemsToUpdate });
           this.gridApi.deselectAll();//optional
-        }
+        };
      
         """)
         gb.configure_grid_options(onRowSelected=js) 
