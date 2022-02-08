@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 from streamlit_webrtc import webrtc_streamer
-
+import chime
 
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import GridUpdateMode, DataReturnMode, JsCode
@@ -81,6 +81,7 @@ def mainpage():
         else:
           warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
           st.warning("targets sighted!")
+          chime.success()
 
       #columns
       col1, col2, col3 = st.columns(3)
