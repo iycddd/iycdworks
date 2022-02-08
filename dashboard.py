@@ -267,7 +267,8 @@ def data3():
 
             api.applyTransaction({add: sel});
             
-            alert(adding row..)
+            alert(4);
+            
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
