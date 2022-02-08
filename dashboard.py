@@ -274,8 +274,20 @@ def data3():
         # https://ag-grid.zendesk.com/hc/en-us/articles/360020160932-Removing-selected-rows-or-cells-when-Backspace-or-Delete-is-pressed
         js = JsCode("""
         
-        <button onClick={() => addItems()}>Add Items</button>
+        function(e) {
+            let api = e.api;        
+            let sel = api.getSelectedRows();
+
+            api.applyTransaction({remove: sel});
+        };
+        """)
+        gb.configure_grid_options(onRowSelected=js) 
         
+        
+        
+        
+        
+        newrow = JsCode("""
         function(e) {
             let api = e.api;        
             let sel = api.getSelectedRows();
@@ -283,7 +295,14 @@ def data3():
             api.applyTransaction({add: sel});
         };
         """)
-        gb.configure_grid_options(onRowSelected=js) 
+           
+        if st.button('add'):
+            newrow
+        
+        
+        
+        
+        
         return AgGrid(
             df,
             gridOptions=gb.build(),
