@@ -204,7 +204,7 @@ def data2():
     
     def addrow():
        get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
-        get_data().append({"timestamp": col1, "vehicle": col2, "quantity": col3})
+       get_data().append({"timestamp": col1, "vehicle": col2, "quantity": col3})
         
     
     if st.button("Add row"):
