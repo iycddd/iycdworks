@@ -200,20 +200,7 @@ def feedC():
 
 ## data ##
    
-def data():
-
-#        df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6]})
-#        grid_return = AgGrid(df,
-#                             editable=True,
-#                             #gridOptions=gb.build(),
-#                             #data_return_mode="filtered_and_sorted",
-#                             #update_mode="no_update",
-#                             #fit_columns_on_grid_load=True,
-#                             #theme = light
-#                            )
-#        new_df = grid_return['data']
-#        gridApi.applyTransaction({add: [{}]})
-#        
+def data():    
 
         df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
                            'vehicle': ['A', 'B', 'A'],
@@ -284,25 +271,6 @@ def data3():
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
-        
-        
-        
-        
-        
-        newrow = JsCode("""
-        function(e) {
-            let api = e.api;        
-            let sel = api.getSelectedRows();
-            alert(adding row..);
-            api.applyTransaction({add: sel});
-          
-        };
-        """)
-           
-        if st.button('add'):
-            newrow
-        
-        
         
         
         
