@@ -279,7 +279,7 @@ def data3():
             api.applyTransaction({add: sel});
         };
         """)
-        gb.configure_grid_options(onRowSelected=js) 
+ #       gb.configure_grid_options(onRowSelected=js) 
         return AgGrid(
             df,
             gridOptions=gb.build(),
@@ -300,16 +300,6 @@ def data3():
     response = display_table(df)
     st.write(f"Dataframe shape: {response['data'].shape}")
      
-    things = JsCode("""
-        function(e) {
-            let api = e.api;        
-            let sel = api.getSelectedRows();
 
-            api.applyTransaction({add: sel});
-        };
-        """)
-
-    if st.button('add'):
-       things   
         
 main()
