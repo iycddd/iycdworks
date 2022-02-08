@@ -231,9 +231,13 @@ def data():
         new_df = grid_return['data']
         
         newrow = JsCode(
+#             """
+#             gridApi.applyTransaction({ add:[{ }] })
              """
-             gridApi.applyTransaction({ add:[{ }] })
-       
+                const row = //someNewRowDataHere
+
+                this.gridOptions.rowData.push(row)
+                this.gridApi.setRowData(this.gridOptions.rowData)
              """)
            
         if st.button('add'):
