@@ -278,7 +278,7 @@ def data3():
             let api = e.api;        
             let sel = api.getSelectedRows();
 
-            api.applyTransaction({remove: sel});
+            api.applyTransaction({add: sel});
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
