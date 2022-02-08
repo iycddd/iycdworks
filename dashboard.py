@@ -221,11 +221,12 @@ def data():
                           })
         grid_return = AgGrid(df,
                              editable=True,
-                             #gridOptions=gb.build(),
+                             gridOptions=gb.build(),
                              #data_return_mode="filtered_and_sorted",
                              #update_mode="no_update",
                              #fit_columns_on_grid_load=True,
-                             #theme = light
+                             allow_unsafe_jscode=True
+                             theme = light
                             )
         new_df = grid_return['data']
         
@@ -287,11 +288,10 @@ def data3():
 
 
     # Define dummy data
-    rng = np.random.default_rng(2021)
-    N_SAMPLES = 100
-    N_FEATURES = 10
-    df = pd.DataFrame(rng.integers(0, N_SAMPLES, size=(
-        N_SAMPLES, N_FEATURES)), columns=list(string.ascii_uppercase[:N_FEATURES]))
+    df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
+                           'vehicle': ['A', 'B', 'A'],
+                           'quantity': ['1', '2', '1']
+                          })
 
     st.info("Select a row to remove it")
     response = display_table(df)
