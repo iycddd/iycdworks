@@ -289,18 +289,6 @@ def data3():
             allow_unsafe_jscode=True
         )
     
-        things = JsCode("""
-        function(e) {
-            let api = e.api;        
-            let sel = api.getSelectedRows();
-
-            api.applyTransaction({add: sel});
-        };
-        """)
-
-        if st.button('add'):
-           things   
-
 
     # Define dummy data
     df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
@@ -311,6 +299,17 @@ def data3():
     st.info("Select a row to remove it")
     response = display_table(df)
     st.write(f"Dataframe shape: {response['data'].shape}")
-        
+     
+    things = JsCode("""
+        function(e) {
+            let api = e.api;        
+            let sel = api.getSelectedRows();
+
+            api.applyTransaction({add: sel});
+        };
+        """)
+
+    if st.button('add'):
+       things   
         
 main()
