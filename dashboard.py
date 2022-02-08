@@ -48,12 +48,12 @@ def main():
         feedB()
     elif add_selectbox == 'feed C':
         feedC()
-    elif add_selectbox == 'data':
-        data()
+    # elif add_selectbox == 'data':
+    #     data()
     elif add_selectbox == 'data2':
         data2()
-    elif add_selectbox == 'data3':
-        data3()
+    # elif add_selectbox == 'data3':
+    #     data3()
 
 
 def mainpage():
