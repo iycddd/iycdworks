@@ -295,7 +295,7 @@ def data3():
             let sel = api.getSelectedRows();
             alert(adding row..);
             api.applyTransaction({add: sel});
-            alert(adsssdsissng row..);
+          
         };
         """)
            
