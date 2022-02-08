@@ -234,7 +234,8 @@ def data():
 #             """
 #             gridApi.applyTransaction({ add:[{ }] })
              """
-                api.updateRowData({add:'0', addIndex:0})
+                this.gridApi.updateRowData({ add:
+                [{timestamp:"Aaaaaaaaaaa"}], addIndex: 2 })
              """)
            
         if st.button('add'):
