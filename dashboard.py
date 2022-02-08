@@ -232,7 +232,6 @@ def data3():
             
             alert(4);
             
-            api.applyTransaction({ add: newItems, addIndex: 2});
             
         };
      
@@ -244,6 +243,7 @@ def data3():
         return AgGrid(
             df,
             gridOptions=gb.build(),
+          
             # this override the default VALUE_CHANGED
             update_mode=GridUpdateMode.MODEL_CHANGED,
             # needed for js injection
