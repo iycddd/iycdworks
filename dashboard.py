@@ -199,7 +199,7 @@ def data2():
        return []
       
     # Define dummy data
-    df = pd.DataFrame({'timestamp': [],
+    df{} = pd.DataFrame({'timestamp': [],
                            'vehicle': [],
                            'quantity': []
                           })
