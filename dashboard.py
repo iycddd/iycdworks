@@ -230,16 +230,14 @@ def data():
                             )
         new_df = grid_return['data']
         
-        newrow = JsCode(
-#             """
-#             gridApi.applyTransaction({ add:[{ }] })
-             """
-                   let trans:RowDataTransaction = {
-                   add: [ newRecord ],
-                   addIndex: 0
-                   };
-                   gridApi.applyTransaction(trans);
-             """)
+        newrow = JsCode("""
+        function(e) {
+            let api = e.api;        
+            let sel = api.getSelectedRows();
+
+            api.applyTransaction({remove: sel});
+        };
+        """)
            
         if st.button('add'):
             newrow
@@ -276,9 +274,9 @@ def data3():
         js = JsCode("""
         function(e) {
             let api = e.api;        
-            let sel = api.getSelectedRows();
+            
 
-            api.applyTransaction({add: sel});
+            api.applyTransaction({add});
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
