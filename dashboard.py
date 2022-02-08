@@ -233,9 +233,9 @@ def data():
         newrow = JsCode("""
         function(e) {
             let api = e.api;        
-            let sel = api.getSelectedRows();
+            
 
-            api.applyTransaction({remove: sel});
+            api.applyTransaction({add});
         };
         """)
            
@@ -274,9 +274,9 @@ def data3():
         js = JsCode("""
         function(e) {
             let api = e.api;        
-            
+            let sel = api.getSelectedRows();
 
-            api.applyTransaction({add});
+            api.applyTransaction({add: sel});
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
@@ -300,6 +300,16 @@ def data3():
     response = display_table(df)
     st.write(f"Dataframe shape: {response['data'].shape}")
         
-        
+    things = JsCode("""
+        function(e) {
+            let api = e.api;        
+            
+
+            api.applyTransaction({add});
+        };
+        """)
+
+    if st.button('add'):
+       things   
         
 main()
