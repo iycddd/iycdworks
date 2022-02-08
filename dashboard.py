@@ -234,10 +234,11 @@ def data():
 #             """
 #             gridApi.applyTransaction({ add:[{ }] })
              """
-                var selectedRows = this.gridApi.getSelectedNodes();
-                
-                this.gridApi.updateRowData({ add:
-                [{timestamp:"Aaaaaaaaaaa"}], addIndex: 2 })
+                   let trans:RowDataTransaction = {
+                   add: [ newRecord ],
+                   addIndex: 0
+                   };
+                   gridApi.applyTransaction(trans);
              """)
            
         if st.button('add'):
