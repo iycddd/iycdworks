@@ -234,6 +234,8 @@ def data():
 #             """
 #             gridApi.applyTransaction({ add:[{ }] })
              """
+                var selectedRows = this.gridApi.getSelectedNodes();
+                
                 this.gridApi.updateRowData({ add:
                 [{timestamp:"Aaaaaaaaaaa"}], addIndex: 2 })
              """)
