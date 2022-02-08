@@ -231,7 +231,7 @@ def data3():
             
             alert(4);
             
-            sel.setData('0');
+            apipi.applyTransaction({update: None});
         };
         """)
         gb.configure_grid_options(onRowSelected=js) 
