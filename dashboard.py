@@ -234,10 +234,7 @@ def data():
 #             """
 #             gridApi.applyTransaction({ add:[{ }] })
              """
-                const row = //someNewRowDataHere;
-
-                this.gridOptions.rowData.push(row);
-                this.gridApi.setRowData(this.gridOptions.rowData);
+                api.applyTransaction({add: [newRow], addIndex: 0});
              """)
            
         if st.button('add'):
