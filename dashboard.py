@@ -232,23 +232,22 @@ def data3():
             
             alert(4);
             
-            apipi.applyTransaction({update: None});
-            
-            updateItems(value: String) {
-              var itemsToUpdate = [];
-              this.gridApi.forEachNodeAfterFilterAndSort(function(rowNode, index) {
-                if (!rowNode.selected) {
-                  return;
-                }
-                var data = rowNode.data;
-                data.status.name = value;
-                itemsToUpdate.push(data);
-              });
-              var res = this.gridApi.updateRowData({ update: itemsToUpdate });
-              this.gridApi.deselectAll();//optional
-            }
-            
         };
+            
+        updateItems(value: String) {
+          var itemsToUpdate = [];
+          this.gridApi.forEachNodeAfterFilterAndSort(function(rowNode, index) {
+            if (!rowNode.selected) {
+              return;
+            }
+            var data = rowNode.data;
+            data.status.name = value;
+            itemsToUpdate.push(data);
+          });
+          var res = this.gridApi.updateRowData({ update: itemsToUpdate });
+          this.gridApi.deselectAll();//optional
+        }
+     
         """)
         gb.configure_grid_options(onRowSelected=js) 
         
