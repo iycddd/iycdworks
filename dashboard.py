@@ -234,7 +234,7 @@ def data():
 #             """
 #             gridApi.applyTransaction({ add:[{ }] })
              """
-                api.applyTransaction({add: [newRow], addIndex: 0});
+                this.gridApi.applyTransaction({ add: newItems, addIndex: 2});
              """)
            
         if st.button('add'):
