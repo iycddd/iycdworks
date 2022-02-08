@@ -197,6 +197,12 @@ def data2():
     @st.cache(allow_output_mutation=True)
     def get_data():
        return []
+      
+    # Define dummy data
+    df = pd.DataFrame({'timestamp': [],
+                           'vehicle': [],
+                           'quantity': []
+                          })
 
     col1 = st.text_input("Timestamp")
     col2 = st.text_input("Detected")
@@ -204,7 +210,7 @@ def data2():
     
     def addrow():
        get_data().append({"Timestamp": col1, "Detected": col2, "Quantity": col3})
-       get_data().append({"timestamp": col1, "vehicle": col2, "quantity": col3})
+       pd.Dataframe().append({"timestamp": col1, "vehicle": col2, "quantity": col3})
         
     
     if st.button("Add row"):
@@ -252,11 +258,7 @@ def data2():
         )
     
 
-    # Define dummy data
-    df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
-                           'vehicle': ['A', 'B', 'A'],
-                           'quantity': ['1', '2', '1']
-                          })
+   
 
     st.info("Select a row to remove it")
     response = display_table(df)
