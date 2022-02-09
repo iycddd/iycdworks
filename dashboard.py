@@ -1,43 +1,44 @@
 from st_aggrid.shared import GridUpdateMode, DataReturnMode, JsCode
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
-#import chime
+# import chime
 from streamlit_webrtc import webrtc_streamer
 import pandas as pd
 import numpy as np
 import streamlit as st
-showErrorDetails = False
-hideTopBar = True
+import csv
+import time
+
+#showErrorDetails = False
+#hideTopBar = True
 
 ###########
 ## setup ##
 ###########
-
 
 # widen page
 st.set_page_config(layout="wide")
 
 # sidebar
 add_selectbox = st.sidebar.radio(
-    "menu",
-    ("main", "feed A", "feed B", "feed C",
-     "data", "data2", "data3"
-     ))
+    "dashboard selector",
+    ("main", "feed A", "feed B", "feed C", "data"))
 
 #############
-## vidlist ##
+## vidlistuwu ##
 #############
 
-vidlist = ["https://www.youtube.com/watch?v=5qap5aO4i9A",
-           "https://www.youtube.com/watch?v=XWq5kBlakcQ",
-           "https://www.youtube.com/watch?v=XLxToJ4mauY",
-           "https://www.youtube.com/watch?v=9EJIH8kxTn8",
-           "https://www.youtube.com/watch?v=W9wT8uOjv6A",
-           "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
-
+vidlist = [  # "rtmp://13.251.140.213/live/hi",
+    "https://www.youtube.com/watch?v=XWq5kBlakcQ",
+    "https://www.youtube.com/watch?v=XLxToJ4mauY",
+    "https://www.youtube.com/watch?v=9EJIH8kxTn8",
+    "https://www.youtube.com/watch?v=9EJIH8kxTn8",
+    "https://www.youtube.com/watch?v=W9wT8uOjv6A",
+    "https://www.youtube.com/watch?v=cbP2N1BQdYc"]
 
 #############
 ## display ##
 #############
+
 
 def main():
     if add_selectbox == 'main':
@@ -48,12 +49,8 @@ def main():
         feedB()
     elif add_selectbox == 'feed C':
         feedC()
-    # elif add_selectbox == 'data':
-    #     data()
-    elif add_selectbox == 'data2':
-        data2()
-    # elif add_selectbox == 'data3':
-    #     data3()
+    elif add_selectbox == 'data':
+        data()
 
 
 def mainpage():
@@ -70,18 +67,25 @@ def mainpage():
     # sightings input column
     with thirdcol:
         st.title(" ")
-        spotted = st.text_input("TARGET SIGHTED:", "clear")
-        st.write("input 'clear' to clear")
+
+        spotted = st.text_input("TARGET SIGHTED:", "")
+
+        if st.button("alert"):
+            soundalert = True
+        else:
+            soundalert = False
 
     # sightings display column
     with seccol:
         st.title(" ")
-        if spotted == "clear":
+
+        # warning system
+        if soundalert == False or spotted == '':
             st.empty()
         else:
-            warn = st.write("⚠️ ", spotted, "has been spotted ⚠️")
+            # chime.success()
+            st.write("⚠️ ", spotted, "has been spotted ⚠️")
             st.warning("targets sighted!")
-            chime.success()
 
     # columns
     col1, col2, col3 = st.columns(3)
@@ -100,7 +104,9 @@ def mainpage():
         st.video(vidlist[4])
         st.video(vidlist[5])
 
+############
 ## feed A ##
+############
 
 
 def feedA():
@@ -120,8 +126,10 @@ def feedA():
         st.header("anafi")
         st.video(vidlist[1])
 
-
+############
 ## feed B ##
+############
+
 
 def feedB():
 
@@ -141,8 +149,10 @@ def feedB():
         st.header("anafi")
         st.video(vidlist[3])
 
-
+############
 ## feed C ##
+############
+
 
 def feedC():
 
@@ -162,42 +172,15 @@ def feedC():
         st.header("anafi")
         st.video(vidlist[5])
 
+##########
 ## data ##
+##########
 
 
 def data():
 
-    st.session_state['testdf'] = pd.DataFrame({'timestamp': [2120, 2125, 2136],
-                                               'vehicle': ['A', 'B', 'A'],
-                                               'quantity': ['1', '2', '1']
-                                               })
-    grid_return = AgGrid(st.session_state['testdf'],
-                         editable=True,
-                         # gridOptions=gb.build(),
-                         # data_return_mode="filtered_and_sorted",
-                         # update_mode="no_update",
-                         # fit_columns_on_grid_load=True,
-                         allow_unsafe_jscode=True
-                         # theme=light
-                         )
-    new_df = grid_return['data']
-
-    newrow = JsCode("""
-        function(e) {
-            let api = e.api;        
-            let sel = api.getSelectedRows();
-
-            api.applyTransaction({add: sel});
-        };
-        """)
-    gb.configure_grid_options(onRowSelected=js)
-
-    if st.button('add'):
-        newrow
-
-
-def data2():
-    # Define dummy data
+    st.title('data log')
+    # state session
     if not 'testdf' in st.session_state:
         df = st.session_state['testdf'] = pd.DataFrame({'timestamp': [],
                                                         'vehicle': [],
@@ -205,73 +188,81 @@ def data2():
                                                         })
     df = st.session_state['testdf']
 
-    col1 = st.text_input("Timestamp")
-    col2 = st.text_input("Detected")
-    col3 = st.text_input("Quantity")
+    # data live update
+    # data = {'Timestamp': ['343', '2342'], 'Detected': [
+    #     '343', '2342'], 'Quantity': ['343', '2342']}
+    # dff = pd.DataFrame(data)
+    # dff.to_pickle('my_data.pkl')
 
+    data = {'Timestamp': [], 'Detected': [], 'Quantity': []}
+
+    with open('MOCK_DATA.csv', mode='r') as infile:
+        for line in infile:
+            a, b, c = line.strip().split(",")
+            if a == "Timestamp":
+                continue
+            data['Timestamp'].append(a)
+            data['Detected'].append(b)
+            data['Quantity'].append(c)
+
+    # addrow() and delrow()
     def addrow():
         st.session_state['testdf'] = df.append(
             {"timestamp": col1, "vehicle": col2, "quantity": col3}, ignore_index=True)
 
     def delrow():
-        st.session_state['testdf'] = df.drop(
-            index=st.session_state['testdf'].iloc[-1].name)
+        if df.empty == False:
+            st.session_state['testdf'] = df.drop(
+                index=st.session_state['testdf'].iloc[-1].name)
 
-    if st.button("Add row"):
-        addrow()
-    if st.button("Remove row"):
-        delrow()
+    def updatedata():
+        df = st.session_state['testdf']
+
+        # if df.empty == True:
+        # st.session_state['testdf'] = df.append(
+        # {"timestamp": '', "vehicle": '', "quantity": ''}, ignore_index=True)
+
+        # append data from table
+        for i in range(len(data['Timestamp'])):
+            col1 = data['Timestamp'][i]
+            col2 = data['Detected'][i]
+            col3 = data['Quantity'][i]
+            df = st.session_state['testdf']
+
+            st.session_state['testdf'] = df.append(
+                {"timestamp": col1, "vehicle": col2, "quantity": col3}, ignore_index=True)
+
+    # user input
+    with st.expander("edit logs"):
+        col1 = st.text_input("Timestamp")
+        col2 = st.text_input("Detected")
+        col3 = st.text_input("Quantity")
+
+        if st.button("Add row"):
+            addrow()
+        if st.button("Remove row"):
+            delrow()
 
     st.write(st.session_state['testdf'])
 
-
-def data3():
-
-    def display_table(df: pd.DataFrame) -> AgGrid:
-        # Configure AgGrid options
-        gb = GridOptionsBuilder.from_dataframe(df)
-        gb.configure_selection('single', use_checkbox=True)
-
-        # Custom JS code for interactive rows deletion
-        # For credits SEE:
-        # https://github.com/PablocFonseca/streamlit-aggrid/blob/1acb526ba43b5aac9c8eb22cc54eeb05696cd84d/examples/example_highlight_change.py#L21
-        # https://ag-grid.zendesk.com/hc/en-us/articles/360020160932-Removing-selected-rows-or-cells-when-Backspace-or-Delete-is-pressed
-        js = JsCode("""
-        
-        function(e) {
-        
-            let api = e.api;        
-            let sel = api.getSelectedRows();
-
-            api.applyTransaction({add: sel});
-            
-            alert(4);
-            
-            
-        };
-     
-        """)
-        gb.configure_grid_options(onRowSelected=js)
-
-        return AgGrid(
-            df,
-            gridOptions=gb.build(),
-
-            # this override the default VALUE_CHANGED
-            update_mode=GridUpdateMode.MODEL_CHANGED,
-            # needed for js injection
-            allow_unsafe_jscode=True
-        )
-
-    # Define dummy data
-    df = pd.DataFrame({'timestamp': [2120, 2125, 2136],
-                       'vehicle': ['A', 'B', 'A'],
-                       'quantity': ['1', '2', '1']
-                       })
-
-    st.info("Select a row to remove it")
-    response = display_table(df)
-    st.write(f"Dataframe shape: {response['data'].shape}")
+    # updatedata() button
+    if st.button("Update Data"):
+        updatedata()
+        with st.spinner('Wait for it...'):
+            time.sleep(1)
+        st.success('Done!')
 
 
+    # with st.empty():
+    #     while True:
+        # st.warning('hi')
+        # read_df = pd.read_pickle('my_data.pkl')
+        # read_df
+        # for i in range(len(data['Timestamp'])):
+        #     col1 = data['Timestamp'][i]
+        #     col2 = data['Detected'][i]
+        #     col3 = data['Quantity'][i]
+        #     df = st.session_state['testdf']
+        #     st.session_state['testdf'] = df.append(
+        #         {"timestamp": col1, "vehicle": col2, "quantity": col3}, ignore_index=True)
 main()
