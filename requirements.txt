@@ -3,3 +3,4 @@ streamlit_webrtc
 streamlit-authenticator
 streamlit_aggrid
 chime
+requests
