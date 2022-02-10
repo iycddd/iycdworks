@@ -7,6 +7,7 @@ import numpy as np
 import streamlit as st
 import csv
 import time
+import requests
 
 #showErrorDetails = False
 #hideTopBar = True
@@ -182,10 +183,7 @@ def data():
     st.title('data log')
     # state session
     if not 'testdf' in st.session_state:
-        df = st.session_state['testdf'] = pd.DataFrame({'timestamp': [],
-                                                        'vehicle': [],
-                                                        'quantity': []
-                                                        })
+        df = st.session_state['testdf'] = pd.DataFrame({'trackId': [], 'tags': [], 'score': [], 'firstDetected': [], 'lastDetected': []})
     df = st.session_state['testdf']
 
     # data live update
@@ -194,21 +192,23 @@ def data():
     # dff = pd.DataFrame(data)
     # dff.to_pickle('my_data.pkl')
 
-    data = {'Timestamp': [], 'Detected': [], 'Quantity': []}
+    data = {'trackId': [], 'tags': [], 'score': [], 'firstDetected': [], 'lastDetected': []}
 
     with open('MOCK_DATA.csv', mode='r') as infile:
         for line in infile:
             a, b, c = line.strip().split(",")
-            if a == "Timestamp":
+            if a == "trackId":
                 continue
-            data['Timestamp'].append(a)
-            data['Detected'].append(b)
-            data['Quantity'].append(c)
+            data['trackId'].append(a)
+            data['tags'].append(b)
+            data['score'].append(c)
+            data['firstDetected'].append(d)
+            data['lastDetected'].append(d)
 
     # addrow() and delrow()
     def addrow():
         st.session_state['testdf'] = df.append(
-            {"timestamp": col1, "vehicle": col2, "quantity": col3}, ignore_index=True)
+            {"trackId": col1, "tags": col2, "score": col3, "firstDetected": col3, "lastDetected": col3}, ignore_index=True)
 
     def delrow():
         if df.empty == False:
@@ -223,20 +223,24 @@ def data():
         # {"timestamp": '', "vehicle": '', "quantity": ''}, ignore_index=True)
 
         # append data from table
-        for i in range(len(data['Timestamp'])):
-            col1 = data['Timestamp'][i]
-            col2 = data['Detected'][i]
-            col3 = data['Quantity'][i]
+        for i in range(len(data['trackId'])):
+            col1 = data['trackId'][i]
+            col2 = data['tags'][i]
+            col3 = data['score'][i]
+            col4 = data['firstDetected'][i]
+            col4 = data['lastDetected'][i]
             df = st.session_state['testdf']
 
             st.session_state['testdf'] = df.append(
-                {"timestamp": col1, "vehicle": col2, "quantity": col3}, ignore_index=True)
+                {"trackId": col1, "tags": col2, "score": col3, "firstDetected": col3, "lastDetected": col3}, ignore_index=True)
 
     # user input
     with st.expander("edit logs"):
-        col1 = st.text_input("Timestamp")
-        col2 = st.text_input("Detected")
-        col3 = st.text_input("Quantity")
+        col1 = st.text_input("trackId")
+        col2 = st.text_input("tags")
+        col3 = st.text_input("score")
+        col4 = st.text_input("firstDetected")
+        col5 = st.text_input("lastDetected")
 
         if st.button("Add row"):
             addrow()
